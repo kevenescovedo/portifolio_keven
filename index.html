@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html class="h-full antialiased selection:bg-sky-500/30 selection:text-sky-200 scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Keven Rodrigo — Desenvolvedor Full Stack & Mobile</title>
+  <meta content="Portfólio de Keven Rodrigo dos Santos Escovedo. Desenvolvedor Full Stack & Mobile com mais de 3 anos de experiência na TV Fronteira." name="description"/>
+  
+  <!-- SEO Open Graph -->
+  <meta property="og:title" content="Keven Rodrigo — Portfólio Profissional" />
+  <meta property="og:description" content="Desenvolvedor Full Stack & Mobile especializado em automação e performance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kevenrodrigo.dev" />
+  
+  <!-- Fonts -->
+  <link href="assets/css2_9f79da182bcf.css" rel="stylesheet"/>
+  
+  <!-- Custom CSS + Blend Extras -->
+  <style>
+    /* ── Animated Orbs ───────────────────────────── */
+    @keyframes orb-drift {
+      0%   { transform: translate(0,0) scale(1); }
+      33%  { transform: translate(40px,-30px) scale(1.08); }
+      66%  { transform: translate(-20px,40px) scale(0.94); }
+      100% { transform: translate(0,0) scale(1); }
+    }
+    @keyframes orb-drift2 {
+      0%   { transform: translate(0,0) scale(1); }
+      40%  { transform: translate(-50px,30px) scale(1.12); }
+      80%  { transform: translate(30px,-40px) scale(0.9); }
+      100% { transform: translate(0,0) scale(1); }
+    }
+    .orb {
+      position: absolute;
+      border-radius: 9999px;
+      pointer-events: none;
+      filter: blur(80px);
+      mix-blend-mode: screen;
+      will-change: transform;
+    }
+    .orb-1 { width:520px; height:520px; background:radial-gradient(circle,rgba(14,165,233,.22) 0%,transparent 70%); top:5%; right:8%; animation: orb-drift 14s ease-in-out infinite; }
+    .orb-2 { width:400px; height:400px; background:radial-gradient(circle,rgba(99,102,241,.18) 0%,transparent 70%); bottom:10%; right:20%; animation: orb-drift2 18s ease-in-out infinite; }
+    .orb-3 { width:300px; height:300px; background:radial-gradient(circle,rgba(0,255,180,.10) 0%,transparent 70%); top:40%; right:45%; animation: orb-drift 22s ease-in-out infinite reverse; }
+    .orb-4 { width:200px; height:200px; background:radial-gradient(circle,rgba(236,72,153,.12) 0%,transparent 70%); top:15%; right:38%; animation: orb-drift2 26s ease-in-out infinite reverse; }
+
+    /* ── Video blend wrapper ─────────────────────── */
+    #video-blend-wrap {
+      position: absolute; inset: 0;
+      mix-blend-mode: luminosity;
+      opacity: .85;
+    }
+    #video-color-grade {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg,
+        rgba(14,165,233,.18) 0%,
+        rgba(99,102,241,.12) 40%,
+        rgba(0,255,180,.08) 80%,
+        transparent 100%);
+      mix-blend-mode: color;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ── Scanlines ───────────────────────────────── */
+    @keyframes scanline-move { 0%{ top:-100%; } 100%{ top:110%; } }
+    .scanline {
+      position: absolute; left:0; right:0; height: 2px;
+      background: linear-gradient(to right, transparent, rgba(14,165,233,.15), rgba(99,102,241,.2), rgba(14,165,233,.15), transparent);
+      animation: scanline-move 6s linear infinite;
+      pointer-events: none; z-index: 5;
+    }
+    .scanlines-grid {
+      position: absolute; inset:0;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,.06) 2px,
+        rgba(0,0,0,.06) 4px
+      );
+      pointer-events: none; z-index: 4;
+    }
+
+    /* ── Floating Tech Icons over Video ─────────────── */
+    @keyframes float-icon-1 {
+      0%   { transform: translate(0px, 0px) rotate(-5deg); }
+      25%  { transform: translate(8px, -14px) rotate(3deg); }
+      50%  { transform: translate(-6px, -22px) rotate(-2deg); }
+      75%  { transform: translate(10px, -10px) rotate(5deg); }
+      100% { transform: translate(0px, 0px) rotate(-5deg); }
+    }
+    @keyframes float-icon-2 {
+      0%   { transform: translate(0px, 0px) rotate(4deg); }
+      30%  { transform: translate(-10px, -18px) rotate(-3deg); }
+      60%  { transform: translate(7px, -28px) rotate(6deg); }
+      100% { transform: translate(0px, 0px) rotate(4deg); }
+    }
+    @keyframes float-icon-3 {
+      0%   { transform: translate(0px, 0px) rotate(-2deg); }
+      35%  { transform: translate(12px, -16px) rotate(4deg); }
+      70%  { transform: translate(-8px, -24px) rotate(-5deg); }
+      100% { transform: translate(0px, 0px) rotate(-2deg); }
+    }
+    @keyframes float-icon-4 {
+      0%   { transform: translate(0px, 0px) rotate(6deg); }
+      40%  { transform: translate(-14px, -20px) rotate(-4deg); }
+      80%  { transform: translate(9px, -10px) rotate(3deg); }
+      100% { transform: translate(0px, 0px) rotate(6deg); }
+    }
+    @keyframes float-icon-5 {
+      0%   { transform: translate(0px, 0px) rotate(-3deg); }
+      20%  { transform: translate(6px, -18px) rotate(5deg); }
+      55%  { transform: translate(-10px, -26px) rotate(-2deg); }
+      80%  { transform: translate(8px, -12px) rotate(4deg); }
+      100% { transform: translate(0px, 0px) rotate(-3deg); }
+    }
+
+    .tech-float-icon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+      pointer-events: none;
+      z-index: 9;
+      transition: opacity 0.3s;
+    }
+    .tech-float-icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+    }
+    /* Flutter — top-left area */
+    .icon-flutter  { top: 18%; left: 12%; animation: float-icon-1 7s ease-in-out infinite; }
+    /* Vue.js — top-right area */
+    .icon-vue      { top: 12%; right: 14%; animation: float-icon-2 8.5s ease-in-out infinite; animation-delay: -2s; }
+    /* PHP — middle-left */
+    .icon-php      { top: 48%; left: 8%;  animation: float-icon-3 9s ease-in-out infinite; animation-delay: -4s; }
+    /* JS — bottom-right */
+    .icon-js       { bottom: 22%; right: 10%; animation: float-icon-4 7.5s ease-in-out infinite; animation-delay: -1.5s; }
+    /* MySQL — bottom-left area */
+    .icon-mysql    { bottom: 28%; left: 18%; animation: float-icon-5 10s ease-in-out infinite; animation-delay: -3s; }
+
+    /* ── Floating code particles ─────────────────── */
+    @keyframes float-up {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: .5; }
+      90%  { opacity: .3; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+    .code-particle {
+      position: absolute;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: rgba(56,189,248,.4);
+      pointer-events: none;
+      user-select: none;
+      animation: float-up linear infinite;
+      white-space: nowrap;
+    }
+
+    /* ── Ring pulse around video ─────────────────── */
+    @keyframes ring-pulse {
+      0%   { transform: scale(.95); opacity: .5; }
+      50%  { transform: scale(1.02); opacity: .2; }
+      100% { transform: scale(.95); opacity: .5; }
+    }
+    .video-ring {
+      position: absolute; inset: -2px;
+      border-radius: 0;
+      border: 1px solid;
+      border-image: linear-gradient(135deg, rgba(14,165,233,.6), rgba(99,102,241,.3), transparent, rgba(0,255,180,.4)) 1;
+      pointer-events: none;
+      animation: ring-pulse 4s ease-in-out infinite;
+      z-index: 6;
+    }
+
+    /* ── Noise overlay on entire hero ───────────────*/
+    .hero-noise {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      opacity: .025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+      mix-blend-mode: overlay;
+    }
+
+    /* ── Corner bracket decorations ─────────────── */
+    .bracket-tl, .bracket-br {
+      position: absolute;
+      width: 20px; height: 20px;
+      pointer-events: none;
+      z-index: 7;
+    }
+    .bracket-tl { top: 8px; left: 8px; border-top: 1.5px solid rgba(56,189,248,.5); border-left: 1.5px solid rgba(56,189,248,.5); }
+    .bracket-br { bottom: 8px; right: 8px; border-bottom: 1.5px solid rgba(56,189,248,.5); border-right: 1.5px solid rgba(56,189,248,.5); }
+  </style>
+  <!-- Custom CSS -->
+  <link href="assets/custom.css" rel="stylesheet"/>
+  
+  <!-- Tailwind Play CDN (Local Copy) -->
+  <script src="assets/resource_3fa48481346f.es"></script>
+  
+  <!-- Iconify Icon Player (Local Copy) -->
+  <script src="assets/iconify-icon_e19829e7f0e8.js"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['Geist Mono', 'SF Mono', 'monospace'],
+          },
+          colors: {
+            darkBg: '#000000',
+            surfaceBg: '#0A0A0A',
+            accent: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-full overflow-x-hidden bg-black text-white selection:bg-sky-500/30">
+
+  <!-- Technical Background Grid -->
+  <div class="technical-grid"></div>
+
+  <!-- Navigation (Fixed) -->
+  <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar" style="background: rgba(0,0,0,0); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo KR -->
+      <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <div class="relative flex items-center justify-center w-9 h-9 rounded-xl bg-white/5 border border-white/10 group-hover:border-sky-500/50 transition-colors shadow-inner">
+          <iconify-icon class="text-white transition-colors group-hover:text-sky-400" icon="solar:infinity-linear" width="22"></iconify-icon>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold tracking-tight text-white/95">KR</span>
+          <span class="text-[10px] text-white/40 hidden md:block leading-none">Keven Rodrigo</span>
+        </div>
+      </div>
+
+      <!-- Links Center (Desktop) -->
+      <div class="hidden md:flex items-center gap-8">
+        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#sobre">Sobre</a>
+        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#tecnologias">Tecnologias</a>
+        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#experiencia">Experiência</a>
+        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#projetos">Projetos</a>
+        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#contato">Contato</a>
+      </div>
+
+      <!-- Actions Right -->
+      <div class="flex items-center gap-4">
+        <!-- Hire Me Button -->
+        <a href="#contato" class="hidden sm:inline-flex text-xs font-semibold text-black bg-white rounded-full px-4 py-2 hover:bg-neutral-200 transition-all cursor-pointer shadow-md hover:scale-[1.03]">
+          Me contrate
+        </a>
+        <!-- Hamburger Menu Button -->
+        <button class="md:hidden flex items-center justify-center w-8 h-8 rounded-lg text-white/70 hover:text-white hover:bg-white/5 border border-white/5 transition-colors" onclick="toggleMobileMenu()" aria-label="Abrir menu">
+          <iconify-icon icon="solar:hamburger-menu-linear" width="20" id="hamburger-icon"></iconify-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div class="scroll-progress-container">
+      <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu (Drawer) -->
+  <div class="fixed top-16 left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/5 hidden flex-col px-6 py-6 z-40 gap-4 md:hidden transition-all duration-300" id="mobile-menu">
+    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#sobre" onclick="toggleMobileMenu()">Sobre</a>
+    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#tecnologias" onclick="toggleMobileMenu()">Tecnologias</a>
+    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#experiencia" onclick="toggleMobileMenu()">Experiência</a>
+    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#projetos" onclick="toggleMobileMenu()">Projetos</a>
+    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#contato" onclick="toggleMobileMenu()">Contato</a>
+    <a class="text-center text-sm font-semibold text-black bg-white rounded-xl py-3 mt-2 shadow-md" href="#contato" onclick="toggleMobileMenu()">
+      Me contrate
+    </a>
+  </div>
+
+  <!-- Hero Section -->
+  <main class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Noise overlay -->
+    <div class="hero-noise"></div>
+
+    <!-- Animated Orbs (mix-blend-mode: screen) -->
+    <div class="orb orb-1 z-0"></div>
+    <div class="orb orb-2 z-0"></div>
+    <div class="orb orb-3 z-0"></div>
+    <div class="orb orb-4 z-0"></div>
+
+    <!-- Canvas: floating code particles -->
+    <canvas id="particles-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row items-center justify-between relative z-10 py-20 min-h-screen">
+      
+      <!-- Text Container (Left 50% on Desktop, top on mobile) -->
+      <div class="w-full md:w-[50%] flex flex-col justify-center relative z-10">
+        <div class="max-w-xl w-full space-y-6">
+          
+          <!-- Badge: Availability -->
+          <div class="fade-in-up delay-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm hover:border-sky-500/30 hover:bg-white/10 transition-all cursor-pointer group shadow-[0_0_12px_-6px_rgba(255,255,255,0.15)] w-fit">
+            <span class="pulsating-dot"></span>
+            <span class="text-[11px] font-semibold text-white/90 tracking-wide transition-colors group-hover:text-sky-200">
+              Disponível para projetos
+            </span>
+          </div>
+
+          <!-- Headline / Name -->
+          <div class="space-y-2">
+            <h1 class="fade-in-up delay-150 text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight text-white leading-tight">
+              Keven Rodrigo
+            </h1>
+            <h1 class="fade-in-up delay-300 text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/90 via-white/80 to-white/30">
+              dos Santos Escovedo
+            </h1>
+          </div>
+
+          <!-- Typewriter Phrase -->
+          <div class="fade-in-up delay-500 min-h-[32px] sm:min-h-[36px] flex items-center">
+            <span class="text-sm font-mono uppercase tracking-widest text-sky-400/90 font-semibold" id="typewriter-text"></span>
+            <span class="typing-cursor"></span>
+          </div>
+
+          <!-- Subtitle -->
+          <p class="fade-in-up delay-650 text-sm sm:text-base text-neutral-400 font-normal leading-relaxed">
+            Apaixonado por tecnologia, performance e soluções que fazem a diferença no mundo real. Mais de 3 anos transformando ideias em código — do back-end ao mobile.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="fade-in-up delay-800 flex flex-col sm:flex-row gap-4 items-center pt-2">
+            <!-- Primary Button: Follow Glow Cursor -->
+            <a href="#projetos" class="group w-full sm:w-auto overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.6)] hover:scale-[1.02] rounded-full p-[1px] relative block" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--x', (event.clientX - rect.left) + 'px'); this.style.setProperty('--y', (event.clientY - rect.top) + 'px');">
+              <!-- Radial follow gradient -->
+              <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: radial-gradient(150px circle at var(--x) var(--y), #0ea5e9, #3b82f6, transparent 60%);"></span>
+              <!-- Normal Border -->
+              <span class="absolute inset-0 bg-white/20 opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
+              <!-- Inside Content -->
+              <span class="flex items-center justify-center gap-2 transition-all duration-300 group-hover:bg-black/95 text-xs font-bold uppercase tracking-wider text-white bg-black w-full h-full border-white/5 border rounded-full py-4 px-8 relative backdrop-blur-3xl whitespace-nowrap">
+                Ver meus projetos
+                <iconify-icon class="text-sky-400 transition-transform duration-300 group-hover:translate-x-1" icon="lucide:arrow-right" width="14"></iconify-icon>
+              </span>
+            </a>
+
+            <!-- Secondary Outline Button -->
+            <a href="./assets/curriculo-keven.pdf" download class="group flex items-center justify-center gap-2 w-full sm:w-auto text-xs font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/15 border border-white/10 hover:border-white/25 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] rounded-full py-4 px-8 relative shadow-lg backdrop-blur-xl transition-all duration-300 whitespace-nowrap" style="--border-gradient: linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 9999px">
+              <iconify-icon class="opacity-80 transition-opacity group-hover:opacity-100 text-sky-400" icon="solar:download-linear" width="16"></iconify-icon>
+              Baixar currículo
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="fade-in-up delay-950 flex items-center gap-6 pt-6 border-t border-white/5">
+            <span class="text-[10px] font-mono text-white/30 uppercase tracking-widest">Contatos rápidos:</span>
+            <div class="flex items-center gap-5">
+              <a href="https://github.com/kevenescovedo" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-white transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5" aria-label="GitHub">
+                <iconify-icon icon="simple-icons:github" width="20"></iconify-icon>
+              </a>
+              <a href="https://www.linkedin.com/in/keven-escovedo-5b59b118b/" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-sky-400 transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5" aria-label="LinkedIn">
+                <iconify-icon icon="simple-icons:linkedin" width="20"></iconify-icon>
+              </a>
+              <a href="https://www.instagram.com/keven_escovedo/" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-pink-400 transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5" aria-label="Instagram">
+                <iconify-icon icon="simple-icons:instagram" width="20"></iconify-icon>
+              </a>
+              <a href="https://wa.me/5518996640661" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-emerald-400 transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5" aria-label="WhatsApp">
+                <iconify-icon icon="simple-icons:whatsapp" width="20"></iconify-icon>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Spacer for desktop layout -->
+      <div class="hidden md:block md:w-[50%]"></div>
+
+      <!-- Video Container (Right 50% of Viewport on Desktop, bottom on mobile) -->
+      <div class="w-full md:w-[50%] h-[320px] md:h-screen md:absolute md:right-0 md:top-0 overflow-hidden flex items-center justify-center z-0">
+        <!-- Corner brackets decoration -->
+        <div class="bracket-tl hidden md:block"></div>
+        <div class="bracket-br hidden md:block"></div>
+
+        <!-- Parallax Wrapper -->
+        <div id="video-parallax-wrapper" class="w-full h-full transition-transform duration-75 ease-out relative">
+
+          <!-- VIDEO with luminosity blend -->
+          <div id="video-blend-wrap">
+            <video class="w-full h-full object-cover" autoplay loop muted playsinline id="hero-video" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <source src="./assets/videos/Man_programming_for_portfolio_202605301703-ezremove.mp4" type="video/mp4">
+              Seu navegador não suporta a reprodução de vídeo.
+            </video>
+          </div>
+
+          <!-- Color grade overlay (mix-blend-mode: color) -->
+          <div id="video-color-grade"></div>
+
+          <!-- Scanline moving bar -->
+          <div class="scanline"></div>
+          <!-- Subtle CRT grid -->
+          <div class="scanlines-grid"></div>
+
+          <!-- Ring pulse -->
+          <div class="video-ring hidden md:block"></div>
+
+          <!-- Gradiente esquerdo suave -->
+          <div class="absolute inset-0 pointer-events-none hidden md:block" style="background: linear-gradient(to right, #000000 0%, #000000 4%, rgba(0,0,0,0.88) 16%, rgba(0,0,0,0.5) 28%, rgba(0,0,0,0.15) 42%, transparent 60%); z-index:8;"></div>
+          <!-- Gradiente direito suave -->
+          <div class="absolute inset-0 pointer-events-none hidden md:block" style="background: linear-gradient(to left, #000000 0%, #000000 2%, rgba(0,0,0,0.75) 10%, rgba(0,0,0,0.25) 22%, transparent 38%); z-index:8;"></div>
+          <!-- Fade topo / rodapé -->
+          <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 18%, transparent 78%, rgba(0,0,0,0.8) 100%); z-index:8;"></div>
+          <!-- Mobile gradiente -->
+          <div class="absolute inset-0 pointer-events-none md:hidden" style="background: linear-gradient(to bottom, #000 0%, transparent 28%, transparent 68%, #000 100%); z-index:8;"></div>
+
+          <!-- ── Floating Tech Icons ──────────────────── -->
+          <!-- Flutter -->
+          <div class="tech-float-icon icon-flutter hidden md:flex">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" />
+          </div>
+          <!-- Vue.js -->
+          <div class="tech-float-icon icon-vue hidden md:flex">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" />
+          </div>
+          <!-- PHP -->
+          <div class="tech-float-icon icon-php hidden md:flex">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+          </div>
+          <!-- JavaScript -->
+          <div class="tech-float-icon icon-js hidden md:flex">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+          </div>
+          <!-- MySQL -->
+          <div class="tech-float-icon icon-mysql hidden md:flex">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Center Scroll Indicator at the bottom, matching the Precision Pen screenshot -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-20">
+      <span class="text-[9px] font-mono tracking-[0.2em] text-white/30 uppercase">Role para explorar</span>
+      <div class="w-px h-10 bg-gradient-to-b from-white/30 to-transparent animate-bounce"></div>
+    </div>
+
+    <!-- Layout bottom divider separating the Hero from next sections -->
+    <div class="fade-divider"></div>
+  </main>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // 1. Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('hamburger-icon');
+      
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      
+      // Toggle Hamburger to Close icon
+      if (menu.classList.contains('flex')) {
+        icon.setAttribute('icon', 'solar:close-square-linear');
+      } else {
+        icon.setAttribute('icon', 'solar:hamburger-menu-linear');
+      }
+    }
+
+    // 2. Reading Progress Bar & Glass Header Background Shift
+    window.addEventListener('scroll', () => {
+      // Progress calculation
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolledPercent = height > 0 ? (winScroll / height) * 100 : 0;
+      document.getElementById('scroll-progress').style.width = scrolledPercent + '%';
+
+      // Navbar visual shifting on scroll — mantém transparente no topo, escurece ao rolar
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 30) {
+        navbar.style.background = 'rgba(0, 0, 0, 0.75)';
+        navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+      } else {
+        navbar.style.background = 'rgba(0, 0, 0, 0)';
+        navbar.style.borderBottom = 'none';
+      }
+    });
+
+    // 3. Typewriter Effect
+    const phrases = [
+      "Desenvolvedor Full Stack & Mobile",
+      "Analista de Sistemas",
+      "Vibe Coding"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterEl = document.getElementById('typewriter-text');
+    let typingSpeed = 80;
+
+    function handleTypewriter() {
+      const currentPhrase = phrases[phraseIndex];
+      
+      if (!isDeleting) {
+        // Typing characters
+        typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 85;
+
+        // If the phrase is complete
+        if (charIndex === currentPhrase.length) {
+          isDeleting = true;
+          typingSpeed = 2000; // Pause at the end of the phrase
+        }
+      } else {
+        // Deleting characters
+        typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 40;
+
+        // If fully deleted
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          typingSpeed = 300; // Pause before typing the next phrase
+        }
+      }
+      
+      setTimeout(handleTypewriter, typingSpeed);
+    }
+
+    // Start Typewriter loop on load
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(handleTypewriter, 1000);
+    });
+
+    // 4. Smooth Parallax Scroll for Video
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      const videoWrapper = document.getElementById('video-parallax-wrapper');
+      
+      if (videoWrapper && window.innerWidth >= 768) {
+        // Parallax translate factor of 0.25 (slower movement)
+        videoWrapper.style.transform = `translateY(${scrolled * 0.25}px)`;
+      } else if (videoWrapper) {
+        videoWrapper.style.transform = 'none';
+      }
+    });
+
+    // 5. Floating code particles on canvas
+    (function() {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      const symbols = ['01','{}','</>','fn()','&&','||','=>','[]','const','null','0x','#!/','if()','//','/*','git','npm','API','SQL','AI'];
+      let W, H, particles = [];
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function spawn() {
+        const side = Math.random() > 0.5 ? 'left' : 'right';
+        return {
+          x: side === 'left' ? Math.random() * W * 0.45 : W * 0.55 + Math.random() * W * 0.45,
+          y: H + 20,
+          text: symbols[Math.floor(Math.random() * symbols.length)],
+          speed: 0.4 + Math.random() * 0.6,
+          opacity: 0,
+          targetOpacity: 0.15 + Math.random() * 0.25,
+          fontSize: 10 + Math.floor(Math.random() * 8),
+          drift: (Math.random() - 0.5) * 0.3,
+          hue: [195, 263, 160, 320][Math.floor(Math.random()*4)]
+        };
+      }
+
+      for (let i = 0; i < 22; i++) {
+        const p = spawn();
+        p.y = Math.random() * H;
+        p.opacity = p.targetOpacity * Math.random();
+        particles.push(p);
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach((p, i) => {
+          p.y -= p.speed;
+          p.x += p.drift;
+          if (p.y < 0 - p.fontSize * 2) {
+            particles[i] = spawn();
+            return;
+          }
+          const fade = Math.min(1, (H - p.y) / (H * 0.15));
+          ctx.save();
+          ctx.globalAlpha = p.opacity * fade;
+          ctx.font = `${p.fontSize}px 'Geist Mono', monospace`;
+          ctx.fillStyle = `hsl(${p.hue}, 80%, 70%)`;
+          ctx.fillText(p.text, p.x, p.y);
+          ctx.restore();
+        });
+        if (particles.length < 22 && Math.random() < 0.02) particles.push(spawn());
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // 6. (Glitch effect removed — name displays normally)
+  </script>
+</body>
+</html>
