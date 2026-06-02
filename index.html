@@ -114,6 +114,12 @@
       80%  { transform: translate(8px, -12px) rotate(4deg); }
       100% { transform: translate(0px, 0px) rotate(-3deg); }
     }
+    @keyframes float-icon-6 {
+      0%   { transform: translate(0px, 0px) rotate(2deg); }
+      35%  { transform: translate(-12px, -15px) rotate(-5deg); }
+      75%  { transform: translate(10px, -22px) rotate(4deg); }
+      100% { transform: translate(0px, 0px) rotate(2deg); }
+    }
 
     .tech-float-icon {
       position: absolute;
@@ -148,6 +154,8 @@
     .icon-js       { bottom: 22%; right: 10%; animation: float-icon-4 7.5s ease-in-out infinite; animation-delay: -1.5s; }
     /* MySQL — bottom-left area */
     .icon-mysql    { bottom: 28%; left: 18%; animation: float-icon-5 10s ease-in-out infinite; animation-delay: -3s; }
+    /* Python — middle-right area */
+    .icon-python   { top: 52%; right: 12%; animation: float-icon-6 8s ease-in-out infinite; animation-delay: -1s; }
 
     /* ── Floating code particles ─────────────────── */
     @keyframes float-up {
@@ -199,8 +207,83 @@
       pointer-events: none;
       z-index: 7;
     }
-    .bracket-tl { top: 8px; left: 8px; border-top: 1.5px solid rgba(56,189,248,.5); border-left: 1.5px solid rgba(56,189,248,.5); }
     .bracket-br { bottom: 8px; right: 8px; border-bottom: 1.5px solid rgba(56,189,248,.5); border-right: 1.5px solid rgba(56,189,248,.5); }
+
+    /* ── UI Components (Design System) ───────────── */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    /* ── Tech Badges ─────────────────────────────── */
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+    .tech-badge:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .tech-badge.evolution {
+      border: 1px dashed rgba(56, 189, 248, 0.6);
+      background: rgba(56, 189, 248, 0.05);
+      color: rgba(56, 189, 248, 0.9);
+    }
+    .tech-badge.evolution:hover {
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    /* ── Marquee ─────────────────────────────────── */
+    .marquee-container {
+      overflow: hidden;
+      display: flex;
+      white-space: nowrap;
+      position: relative;
+      margin-top: 3rem;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+    .marquee-content {
+      display: flex;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-container:hover .marquee-content {
+      animation-play-state: paused;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Accordion ───────────────────────────────── */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+      opacity: 0;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+      opacity: 1;
+    }
+    .accordion-item .chevron {
+      transition: transform 0.3s ease;
+    }
+    .accordion-item.active .chevron {
+      transform: rotate(180deg);
+    }
   </style>
   <!-- Custom CSS -->
   <link href="assets/custom.css" rel="stylesheet"/>
@@ -259,15 +342,10 @@
         <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#tecnologias">Tecnologias</a>
         <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#experiencia">Experiência</a>
         <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#projetos">Projetos</a>
-        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#contato">Contato</a>
       </div>
 
       <!-- Actions Right -->
       <div class="flex items-center gap-4">
-        <!-- Hire Me Button -->
-        <a href="#contato" class="hidden sm:inline-flex text-xs font-semibold text-black bg-white rounded-full px-4 py-2 hover:bg-neutral-200 transition-all cursor-pointer shadow-md hover:scale-[1.03]">
-          Me contrate
-        </a>
         <!-- Hamburger Menu Button -->
         <button class="md:hidden flex items-center justify-center w-8 h-8 rounded-lg text-white/70 hover:text-white hover:bg-white/5 border border-white/5 transition-colors" onclick="toggleMobileMenu()" aria-label="Abrir menu">
           <iconify-icon icon="solar:hamburger-menu-linear" width="20" id="hamburger-icon"></iconify-icon>
@@ -287,10 +365,6 @@
     <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#tecnologias" onclick="toggleMobileMenu()">Tecnologias</a>
     <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#experiencia" onclick="toggleMobileMenu()">Experiência</a>
     <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#projetos" onclick="toggleMobileMenu()">Projetos</a>
-    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#contato" onclick="toggleMobileMenu()">Contato</a>
-    <a class="text-center text-sm font-semibold text-black bg-white rounded-xl py-3 mt-2 shadow-md" href="#contato" onclick="toggleMobileMenu()">
-      Me contrate
-    </a>
   </div>
 
   <!-- Hero Section -->
@@ -317,7 +391,7 @@
           <div class="fade-in-up delay-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm hover:border-sky-500/30 hover:bg-white/10 transition-all cursor-pointer group shadow-[0_0_12px_-6px_rgba(255,255,255,0.15)] w-fit">
             <span class="pulsating-dot"></span>
             <span class="text-[11px] font-semibold text-white/90 tracking-wide transition-colors group-hover:text-sky-200">
-              Disponível para projetos
+              Trabalhando na TV Fronteira
             </span>
           </div>
 
@@ -358,9 +432,9 @@
             </a>
 
             <!-- Secondary Outline Button -->
-            <a href="./assets/curriculo-keven.pdf" download class="group flex items-center justify-center gap-2 w-full sm:w-auto text-xs font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/15 border border-white/10 hover:border-white/25 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] rounded-full py-4 px-8 relative shadow-lg backdrop-blur-xl transition-all duration-300 whitespace-nowrap" style="--border-gradient: linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 9999px">
-              <iconify-icon class="opacity-80 transition-opacity group-hover:opacity-100 text-sky-400" icon="solar:download-linear" width="16"></iconify-icon>
-              Baixar currículo
+            <a href="./assets/pdf/Curriculo_Keven_Escovedo.pdf" target="_blank" class="group flex items-center justify-center gap-2 w-full sm:w-auto text-xs font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/15 border border-white/10 hover:border-white/25 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] rounded-full py-4 px-8 relative shadow-lg backdrop-blur-xl transition-all duration-300 whitespace-nowrap" style="--border-gradient: linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); --border-radius-before: 9999px">
+              <iconify-icon class="opacity-80 transition-opacity group-hover:opacity-100 text-sky-400" icon="solar:document-linear" width="16"></iconify-icon>
+              Ver currículo
             </a>
           </div>
 
@@ -396,7 +470,7 @@
         <div class="bracket-br hidden md:block"></div>
 
         <!-- Parallax Wrapper -->
-        <div id="video-parallax-wrapper" class="w-full h-full transition-transform duration-75 ease-out relative">
+        <div id="video-parallax-wrapper" class="w-full h-full transition-transform duration-75 ease-out relative" style="will-change: transform;">
 
           <!-- VIDEO with luminosity blend -->
           <div id="video-blend-wrap">
@@ -447,6 +521,10 @@
           <div class="tech-float-icon icon-mysql hidden md:flex">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
           </div>
+          <!-- Python -->
+          <div class="tech-float-icon icon-python hidden md:flex">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+          </div>
         </div>
       </div>
 
@@ -461,6 +539,587 @@
     <!-- Layout bottom divider separating the Hero from next sections -->
     <div class="fade-divider"></div>
   </main>
+
+  <!-- Section 2: Sobre Mim -->
+  <section id="sobre" class="relative max-w-7xl mx-auto px-6 py-24 z-10 scroll-mt-20">
+    <div class="mb-12" data-aos="fade-in-up">
+      <span class="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 block">Conheça minha história</span>
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Sobre mim</h2>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-16">
+      
+      <!-- ESQUERDA (45%): bloco visual / estatísticas -->
+      <div class="lg:w-[45%] flex flex-col gap-8">
+        <!-- 4 cards de destaque em grid 2x2 -->
+        <div class="grid grid-cols-2 gap-4">
+          <!-- Card 1 -->
+          <div class="glass-panel p-6 rounded-3xl flex flex-col gap-2 group hover:-translate-y-1 transition-transform" data-aos="scale-up" data-delay="100">
+            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sky-400 mb-2">
+              <iconify-icon icon="lucide:code-2" width="20"></iconify-icon>
+            </div>
+            <div class="text-3xl font-bold text-white"><span class="counter" data-target="3">0</span>+</div>
+            <div class="text-xs text-neutral-400">Anos de experiência</div>
+          </div>
+          <!-- Card 2 -->
+          <div class="glass-panel p-6 rounded-3xl flex flex-col gap-2 group hover:-translate-y-1 transition-transform" data-aos="scale-up" data-delay="200">
+            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-purple-400 mb-2">
+              <iconify-icon icon="lucide:folder-check" width="20"></iconify-icon>
+            </div>
+            <div class="text-3xl font-bold text-white"><span class="counter" data-target="8">0</span>+</div>
+            <div class="text-xs text-neutral-400">Projetos entregues</div>
+          </div>
+          <!-- Card 3 -->
+          <div class="glass-panel p-6 rounded-3xl flex flex-col gap-2 group hover:-translate-y-1 transition-transform" data-aos="scale-up" data-delay="300">
+            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-emerald-400 mb-2">
+              <iconify-icon icon="lucide:layers" width="20"></iconify-icon>
+            </div>
+            <div class="text-3xl font-bold text-white"><span class="counter" data-target="20">0</span>+</div>
+            <div class="text-xs text-neutral-400">Tecnologias dominadas</div>
+          </div>
+          <!-- Card 4 -->
+          <div class="glass-panel p-6 rounded-3xl flex flex-col gap-2 group hover:-translate-y-1 transition-transform" data-aos="scale-up" data-delay="400">
+            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-yellow-400 mb-2">
+              <iconify-icon icon="lucide:trophy" width="20"></iconify-icon>
+            </div>
+            <div class="text-3xl font-bold text-white">1°</div>
+            <div class="text-xs text-neutral-400">Lugar na turma — Fatec</div>
+          </div>
+        </div>
+
+        <!-- Citação -->
+        <blockquote class="relative pl-6 py-2 border-l-4 border-sky-500" data-aos="fade-right">
+          <p class="text-lg italic text-neutral-300 leading-relaxed font-serif">
+            "Sou movido pela curiosidade e pelo desejo de criar coisas que realmente funcionam — e funcionam bem."
+          </p>
+        </blockquote>
+      </div>
+
+      <!-- DIREITA (55%): texto e informações -->
+      <div class="lg:w-[55%] flex flex-col gap-10">
+        
+        <!-- BLOCO A — Apresentação -->
+        <div data-aos="fade-left">
+          <p class="text-neutral-300 leading-relaxed text-sm sm:text-base">
+            Tenho 25 anos, sou natural do Brasil e trabalho com desenvolvimento de software há mais de 3 anos. Fora da tecnologia, gosto de música, academia e aprendizado contínuo. Levo disciplina, dedicação e constância para tudo que desenvolvo.
+          </p>
+        </div>
+
+        <!-- BLOCO B — Atualmente -->
+        <div class="glass-panel p-6 rounded-3xl" data-aos="fade-left" data-delay="150">
+          <h3 class="text-lg font-medium text-white mb-4 flex items-center gap-2">
+            <iconify-icon icon="lucide:zap" class="text-sky-400"></iconify-icon>
+            Atualmente
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check-circle-2" class="text-emerald-500 mt-0.5 shrink-0"></iconify-icon>
+              <span class="text-neutral-300 text-sm">Estudando inglês na Cultura Inglesa</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check-circle-2" class="text-emerald-500 mt-0.5 shrink-0"></iconify-icon>
+              <span class="text-neutral-300 text-sm">Me aprofundando em vibe coding e agentes de IA</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check-circle-2" class="text-emerald-500 mt-0.5 shrink-0"></iconify-icon>
+              <span class="text-neutral-300 text-sm">Utilizando Antigravity como ferramenta de produtividade</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- BLOCO C — Formação acadêmica (Timeline estilo imagem) -->
+        <div data-aos="fade-up" data-delay="200">
+          <h3 class="text-lg font-medium text-white mb-6 flex items-center gap-2">
+            <iconify-icon icon="lucide:graduation-cap" class="text-sky-400"></iconify-icon>
+            Formação & Monitoria
+          </h3>
+          
+          <div class="relative border-l-2 border-sky-500/50 ml-3 space-y-8 pb-4">
+            
+            <!-- Ponto 3 (Atual / TV Fronteira) -->
+            <div class="relative pl-8 group tilt-card" data-aos="fade-up" data-delay="100">
+              <!-- Dot -->
+              <div class="absolute w-3.5 h-3.5 bg-black border-[2.5px] border-emerald-400 rounded-full -left-[8px] top-1.5 shadow-[0_0_10px_rgba(52,211,153,0.5)] transition-all group-hover:scale-125"></div>
+              <div class="absolute w-3.5 h-3.5 bg-emerald-500 rounded-full -left-[8px] top-1.5 animate-ping opacity-30"></div>
+              
+              <!-- Card / Content -->
+              <div class="glass-panel p-5 rounded-2xl hover:border-emerald-500/30 transition-all duration-300 shadow-lg relative overflow-hidden group-hover:-translate-y-1 z-10">
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent pointer-events-none"></div>
+                <div class="flex items-center gap-3 mb-2 relative z-10">
+                  <span class="text-emerald-400 text-xs font-mono">Desde 2022</span>
+                  <span class="text-neutral-500 text-xs font-bold">• TV Fronteira</span>
+                </div>
+                <h4 class="text-white font-medium text-base mb-1 relative z-10">Desenvolvedor Full Stack & Mobile</h4>
+                <p class="text-xs text-neutral-400 relative z-10 leading-relaxed">Desenvolvimento de sistemas de automação, portal de notícias, app mobile e ferramentas internas de BI.</p>
+              </div>
+            </div>
+
+            <!-- Ponto 2 (Mais recente primeiro) -->
+            <div class="relative pl-8 group tilt-card">
+              <!-- Dot -->
+              <div class="absolute w-3.5 h-3.5 bg-black border-[2.5px] border-sky-400 rounded-full -left-[8px] top-1.5 shadow-[0_0_10px_rgba(56,189,248,0.5)] transition-all group-hover:scale-125"></div>
+              
+              <!-- Card / Content -->
+              <div class="glass-panel p-5 rounded-2xl hover:border-sky-500/30 transition-colors shadow-lg relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-sky-500/5 to-transparent pointer-events-none"></div>
+                <div class="flex items-center gap-3 mb-2 relative z-10">
+                  <span class="text-sky-400 text-xs font-mono">2019 – 2022</span>
+                  <span class="text-neutral-500 text-xs font-bold">• Fatec</span>
+                </div>
+                <h4 class="text-white font-medium text-base mb-3 relative z-10">Análise e Desenvolvimento de Sistemas</h4>
+                
+                <div class="flex flex-col gap-2 mt-3 relative z-10">
+                  <!-- Badge especial -->
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium text-yellow-300 bg-yellow-500/10 border border-yellow-500/20 w-fit">
+                    🏆 Melhor Aluno do Curso
+                  </div>
+                  <!-- Trabalho/Monitoria badge -->
+                  <div class="p-3 rounded-xl border-l-2 border-l-purple-500 mt-2 bg-white/[0.03] hover:bg-white/[0.06] transition-colors">
+                    <span class="text-[10px] font-bold tracking-wider uppercase text-purple-400 block mb-1">Experiência Acadêmica</span>
+                    <span class="text-sm text-neutral-200">Monitor de Algoritmos e Engenharia de Software</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ponto 1 -->
+            <div class="relative pl-8 group tilt-card">
+              <!-- Dot -->
+              <div class="absolute w-3.5 h-3.5 bg-black border-[2.5px] border-neutral-600 rounded-full -left-[8px] top-1.5 transition-all group-hover:border-sky-400"></div>
+              
+              <!-- Card / Content -->
+              <div class="glass-panel p-5 rounded-2xl opacity-80 group-hover:opacity-100 transition-opacity">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="text-neutral-400 text-xs font-mono group-hover:text-sky-400/80 transition-colors">2016 – 2018</span>
+                  <span class="text-neutral-500 text-xs font-bold">• Senac</span>
+                </div>
+                <h4 class="text-white font-medium text-sm">Técnico em Informática</h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Tecnologias -->
+  <section id="tecnologias" class="relative max-w-7xl mx-auto px-6 py-24 z-10 scroll-mt-20">
+    <div class="mb-12" data-aos="fade-in-up">
+      <span class="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 block">Meu arsenal</span>
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Tecnologias & ferramentas</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- GRUPO 1: Front-end & Mobile -->
+      <div class="glass-panel p-6 rounded-3xl" data-aos="fade-up" data-delay="100">
+        <h3 class="text-lg font-medium text-white mb-6 flex items-center gap-2">
+          <iconify-icon icon="lucide:layout-template" class="text-sky-400"></iconify-icon> Front-end & Mobile
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="tech-badge"><iconify-icon icon="logos:javascript"></iconify-icon> JavaScript</span>
+          <span class="tech-badge"><iconify-icon icon="logos:vue"></iconify-icon> Vue.js</span>
+          <span class="tech-badge"><iconify-icon icon="logos:react"></iconify-icon> React</span>
+          <span class="tech-badge"><iconify-icon icon="logos:flutter"></iconify-icon> Flutter</span>
+          <span class="tech-badge"><iconify-icon icon="logos:html-5"></iconify-icon> HTML5</span>
+          <span class="tech-badge"><iconify-icon icon="logos:css-3"></iconify-icon> CSS3</span>
+          <span class="tech-badge"><iconify-icon icon="logos:jquery"></iconify-icon> jQuery</span>
+          <span class="tech-badge"><iconify-icon icon="logos:bootstrap"></iconify-icon> Bootstrap</span>
+        </div>
+      </div>
+
+      <!-- GRUPO 2: Back-end & Banco de Dados -->
+      <div class="glass-panel p-6 rounded-3xl" data-aos="fade-up" data-delay="200">
+        <h3 class="text-lg font-medium text-white mb-6 flex items-center gap-2">
+          <iconify-icon icon="lucide:server" class="text-sky-400"></iconify-icon> Back-end & Dados
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="tech-badge"><iconify-icon icon="logos:php"></iconify-icon> PHP</span>
+          <span class="tech-badge"><iconify-icon icon="logos:nodejs-icon"></iconify-icon> Node.js</span>
+          <span class="tech-badge"><iconify-icon icon="logos:python"></iconify-icon> Python</span>
+          <span class="tech-badge"><iconify-icon icon="logos:c-sharp"></iconify-icon> C#</span>
+          <span class="tech-badge"><iconify-icon icon="logos:java"></iconify-icon> Java</span>
+          <span class="tech-badge"><iconify-icon icon="logos:mysql"></iconify-icon> MySQL</span>
+          <span class="tech-badge"><iconify-icon icon="logos:sqlite"></iconify-icon> SQLite</span>
+          <span class="tech-badge"><iconify-icon icon="lucide:network"></iconify-icon> Ajax</span>
+        </div>
+      </div>
+
+      <!-- GRUPO 3: Cloud, DevOps & Ferramentas -->
+      <div class="glass-panel p-6 rounded-3xl" data-aos="fade-up" data-delay="300">
+        <h3 class="text-lg font-medium text-white mb-6 flex items-center gap-2">
+          <iconify-icon icon="lucide:cloud" class="text-sky-400"></iconify-icon> Cloud & DevOps
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="tech-badge"><iconify-icon icon="logos:firebase"></iconify-icon> Firebase</span>
+          <span class="tech-badge"><iconify-icon icon="logos:supabase-icon"></iconify-icon> Supabase</span>
+          <span class="tech-badge"><iconify-icon icon="logos:vercel-icon"></iconify-icon> Vercel</span>
+          <span class="tech-badge"><iconify-icon icon="logos:git-icon"></iconify-icon> Git</span>
+          <span class="tech-badge"><iconify-icon icon="lucide:cable"></iconify-icon> WebSocket</span>
+        </div>
+      </div>
+
+      <!-- GRUPO 4: Em evolução -->
+      <div class="glass-panel p-6 rounded-3xl border-sky-500/30" data-aos="fade-up" data-delay="400">
+        <h3 class="text-lg font-medium text-white mb-6 flex items-center gap-2">
+          <iconify-icon icon="lucide:rocket" class="text-sky-400"></iconify-icon> Em evolução
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="tech-badge evolution"><iconify-icon icon="lucide:bot"></iconify-icon> Agentes de IA</span>
+          <span class="tech-badge evolution"><iconify-icon icon="lucide:terminal-square"></iconify-icon> Vibe Coding</span>
+          <span class="tech-badge evolution"><iconify-icon icon="lucide:globe"></iconify-icon> Inglês (Cultura Inglesa)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faixa Animada (Marquee) -->
+    <div class="marquee-container opacity-50 hover:opacity-100 transition-opacity">
+      <div class="marquee-content gap-4 text-white/40 text-sm font-mono">
+        <span>JavaScript</span> <span>·</span>
+        <span>Vue.js</span> <span>·</span>
+        <span>React</span> <span>·</span>
+        <span>Flutter</span> <span>·</span>
+        <span>PHP</span> <span>·</span>
+        <span>Node.js</span> <span>·</span>
+        <span>Python</span> <span>·</span>
+        <span>MySQL</span> <span>·</span>
+        <span>Firebase</span> <span>·</span>
+        <span>Git</span> <span>·</span>
+        <span>WebSocket</span> <span>·</span>
+        <!-- Duplicado para loop perfeito -->
+        <span>JavaScript</span> <span>·</span>
+        <span>Vue.js</span> <span>·</span>
+        <span>React</span> <span>·</span>
+        <span>Flutter</span> <span>·</span>
+        <span>PHP</span> <span>·</span>
+        <span>Node.js</span> <span>·</span>
+        <span>Python</span> <span>·</span>
+        <span>MySQL</span> <span>·</span>
+        <span>Firebase</span> <span>·</span>
+        <span>Git</span> <span>·</span>
+        <span>WebSocket</span> <span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Experiência Profissional -->
+  <section id="experiencia" class="relative max-w-4xl mx-auto px-6 py-24 z-10 scroll-mt-20">
+    <div class="mb-12 text-center" data-aos="fade-in-up">
+      <span class="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 block">Onde trabalhei</span>
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Experiência profissional</h2>
+    </div>
+
+    <!-- Cabeçalho da Empresa -->
+    <div class="glass-panel p-6 rounded-3xl mb-8 flex flex-col md:flex-row items-center gap-6 justify-between" data-aos="fade-up">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+          <iconify-icon icon="lucide:tv" class="text-3xl text-emerald-400"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white">TV Fronteira</h3>
+          <p class="text-neutral-400">Desenvolvedor Full Stack & Mobile</p>
+        </div>
+      </div>
+      <div class="text-xs font-mono text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+        Desde 2022
+      </div>
+    </div>
+
+    <!-- Projetos Accordion -->
+    <div class="space-y-4" id="experience-accordion">
+      <!-- Card 1 -->
+      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="100" onclick="toggleAccordion(this)">
+        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400">
+              <iconify-icon icon="lucide:newspaper" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="text-white font-medium">Portal de Notícias — ifronteira.com</h4>
+              <p class="text-xs text-neutral-500 mt-1 font-mono">PHP · JavaScript · MySQL · Analytics</p>
+            </div>
+          </div>
+          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
+        </div>
+        <div class="accordion-content">
+          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
+            Desenvolvimento e evolução do ifronteira.com, portal completo de notícias e blogs com espaço publicitário e banners rotativos. Responsável por auditorias de performance e SEO, implementação de meta tags completas, Open Graph para redes sociais, sitemaps dinâmicos, editor de texto rico com CKEditor e integração com Google Analytics para rastrear métricas de vídeo, visualizações e cliques em banners.
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">PHP</span>
+              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">JavaScript</span>
+              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">MySQL</span>
+              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">CKEditor</span>
+              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">Google Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="150" onclick="toggleAccordion(this)">
+        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
+              <iconify-icon icon="lucide:bot" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="text-white font-medium">Automação de Vídeos — YouTube → Site</h4>
+              <p class="text-xs text-neutral-500 mt-1 font-mono">PHP · YouTube API · MySQL</p>
+            </div>
+          </div>
+          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
+        </div>
+        <div class="accordion-content">
+          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
+            Script em PHP que monitora o canal da TV Fronteira no YouTube. Ao detectar um novo vídeo publicado, insere o conteúdo automaticamente no portal de notícias — zero intervenção manual, publicação imediata.
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="200" onclick="toggleAccordion(this)">
+        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+              <iconify-icon icon="lucide:monitor-play" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="text-white font-medium">Sistema TEO — Telas para Jornalismo ao Vivo</h4>
+              <p class="text-xs text-neutral-500 mt-1 font-mono">Vue.js · JavaScript · CSS Animations</p>
+            </div>
+          </div>
+          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
+        </div>
+        <div class="accordion-content">
+          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
+            Criação e configuração de telas interativas touch para o sistema TEO, utilizado por jornalistas durante os telejornais ao vivo. Em parceria com o videografismo, também desenvolvi telas animadas de temperatura, boletins informativos e artes exibidas no ar.
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="250" onclick="toggleAccordion(this)">
+        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400">
+              <iconify-icon icon="lucide:timer" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="text-white font-medium">Cronômetro Sincronizado — Debate</h4>
+              <p class="text-xs text-neutral-500 mt-1 font-mono">Node.js · WebSocket · JavaScript</p>
+            </div>
+          </div>
+          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
+        </div>
+        <div class="accordion-content">
+          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
+            Cronômetro em tempo real para o debate político transmitido pela TV Fronteira. Desenvolvido com Node.js e WebSocket: ao iniciar em uma tela, todas as outras sincronizavam simultaneamente, sem delay perceptível.
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="300" onclick="toggleAccordion(this)">
+        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+              <iconify-icon icon="lucide:smartphone" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="text-white font-medium">Aplicativo de Rádio — Android & iOS</h4>
+              <p class="text-xs text-neutral-500 mt-1 font-mono">Flutter · Firebase · PHP</p>
+            </div>
+          </div>
+          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
+        </div>
+        <div class="accordion-content">
+          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
+            App mobile completo para Android e iOS: rádio ao vivo via stream, lives, vídeos do YouTube e promoções. Diferencial técnico: Server-Driven UI — cores, logo e configurações alteradas remotamente sem nova publicação nas lojas. Painel interno para controle de lives e stream em tempo real. Automação de programas: script PHP detecta o início de um programa e o insere no app automaticamente. Monitorado via Firebase Analytics.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 6 -->
+      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="350" onclick="toggleAccordion(this)">
+        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400">
+              <iconify-icon icon="lucide:mic" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="text-white font-medium">Automação Voz do Brasil</h4>
+              <p class="text-xs text-neutral-500 mt-1 font-mono">Python · Web Scraping</p>
+            </div>
+          </div>
+          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
+        </div>
+        <div class="accordion-content">
+          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
+            Script Python que acessa automaticamente o site da Rádio Gov, localiza e baixa o programa Voz do Brasil do dia, deixando-o pronto para transmissão na rádio. Processo antes manual, agora 100% automático.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 7 -->
+      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="400" onclick="toggleAccordion(this)">
+        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400">
+              <iconify-icon icon="lucide:pie-chart" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="text-white font-medium">Sistema de BI — Business Intelligence</h4>
+              <p class="text-xs text-neutral-500 mt-1 font-mono">PHP · Vue.js · MySQL</p>
+            </div>
+          </div>
+          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
+        </div>
+        <div class="accordion-content">
+          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
+            Desenvolvimento de módulos e auditorias em sistema interno de BI. Trabalho focado em identificação de gargalos, resolução de problemas de performance e melhoria na confiabilidade dos dados exibidos para as equipes internas.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Projetos em Destaque -->
+  <section id="projetos" class="relative max-w-7xl mx-auto px-6 py-24 z-10 scroll-mt-20">
+    <div class="mb-12" data-aos="fade-in-up">
+      <span class="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 block">O que já construí</span>
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Projetos em destaque</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Card Destaque (2 colunas) -->
+      <div class="glass-panel rounded-3xl overflow-hidden group md:col-span-2 hover:-translate-y-2 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.5)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="100">
+        <a href="https://ifronteira.com" target="_blank" class="block h-auto w-full relative overflow-hidden transition-transform duration-500 border-b border-white/5 bg-black/50">
+          <img src="assets/ifronteira-preview.png" alt="Portal ifronteira" class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 origin-top" />
+        </a>
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-sky-400 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20">Web</span>
+            <div class="flex gap-3">
+              <a href="https://ifronteira.com" target="_blank" class="text-white/50 hover:text-white transition-colors" aria-label="Acessar projeto">
+                <iconify-icon icon="lucide:external-link" width="20"></iconify-icon>
+              </a>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Portal de Notícias — ifronteira.com</h3>
+          <p class="text-neutral-400 text-sm mb-6 max-w-3xl">Portal completo de notícias e blogs com espaço publicitário, banners rotativos, SEO avançado e integração com Google Analytics.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">PHP</span>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">JavaScript</span>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">MySQL</span>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Google Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="150">
+        <div class="h-40 w-full bg-gradient-to-br from-purple-500/20 to-pink-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
+          <iconify-icon icon="lucide:smartphone" class="text-5xl text-purple-400/60 absolute group-hover:scale-110 group-hover:rotate-[-5deg] transition-transform duration-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]"></iconify-icon>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-purple-400 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">Mobile</span>
+            <span class="text-xs text-white/30">Privado</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">App de Rádio — Android & iOS</h3>
+          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Aplicativo com rádio ao vivo, lives e Server-Driven UI para atualização remota sem publicação nas lojas.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Flutter</span>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Firebase</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(239,68,68,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="200">
+        <div class="h-40 w-full bg-gradient-to-br from-red-500/20 to-orange-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
+          <iconify-icon icon="lucide:youtube" class="text-5xl text-red-400/60 absolute group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"></iconify-icon>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-red-400 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">Automação</span>
+            <span class="text-xs text-white/30">Privado</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Automação YouTube → Portal</h3>
+          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Script que detecta novos vídeos no YouTube e publica automaticamente no portal de notícias.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">PHP</span>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">YouTube API</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="250">
+        <div class="h-40 w-full bg-gradient-to-br from-emerald-500/20 to-green-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
+          <iconify-icon icon="lucide:monitor-play" class="text-5xl text-emerald-400/60 absolute group-hover:scale-110 group-hover:rotate-[-3deg] transition-transform duration-500 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]"></iconify-icon>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">Broadcast</span>
+            <span class="text-xs text-white/30">Privado</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Sistema TEO — Telas ao Vivo</h3>
+          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Telas interativas touch para jornalismo ao vivo, com animações e artes exibidas no ar.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Vue.js</span>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">CSS Animations</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(234,179,8,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="300">
+        <div class="h-40 w-full bg-gradient-to-br from-yellow-500/20 to-orange-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
+          <iconify-icon icon="lucide:timer" class="text-5xl text-yellow-400/60 absolute group-hover:scale-110 group-hover:rotate-[5deg] transition-transform duration-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]"></iconify-icon>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-yellow-400 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20">Real-time</span>
+            <span class="text-xs text-white/30">Privado</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Cronômetro Sincronizado</h3>
+          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Sistema de cronômetro real-time via WebSocket, com sincronização perfeita entre múltiplas telas simultâneas.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Node.js</span>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">WebSocket</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#050505] border-t border-white/5 py-12 text-center">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
+      <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 text-white font-bold tracking-widest text-lg">
+        KR
+      </div>
+      <p class="text-neutral-400 text-sm max-w-sm">"Transformo ideias em código — do back-end ao mobile, da automação ao ar."</p>
+      <div class="flex gap-4">
+        <a href="https://github.com/kevenescovedo" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors">
+          <iconify-icon icon="lucide:github" width="18"></iconify-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/keven-escovedo-5b59b118b/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors">
+          <iconify-icon icon="lucide:linkedin" width="18"></iconify-icon>
+        </a>
+        <a href="https://wa.me/5518996640661" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors">
+          <iconify-icon icon="logos:whatsapp-icon" width="18"></iconify-icon>
+        </a>
+      </div>
+      <div class="w-full h-px bg-white/5 my-2"></div>
+      <p class="text-xs text-neutral-600">© 2026 Keven Rodrigo. Desenvolvido com 💙 e Antigravity AI.</p>
+    </div>
+  </footer>
 
   <!-- Interactive Scripts -->
   <script>
@@ -480,22 +1139,44 @@
       }
     }
 
-    // 2. Reading Progress Bar & Glass Header Background Shift
+    // 2 & 4. Centralized Scroll Listener with requestAnimationFrame for Performance
+    let isScrolling = false;
+    const navbar = document.getElementById('navbar');
+    const scrollProgress = document.getElementById('scroll-progress');
+    const videoWrapper = document.getElementById('video-parallax-wrapper');
+    
+    if (videoWrapper) videoWrapper.style.willChange = 'transform';
+    
     window.addEventListener('scroll', () => {
-      // Progress calculation
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolledPercent = height > 0 ? (winScroll / height) * 100 : 0;
-      document.getElementById('scroll-progress').style.width = scrolledPercent + '%';
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - window.innerHeight;
+          
+          if (scrollProgress) {
+            const scrolledPercent = height > 0 ? (winScroll / height) * 100 : 0;
+            scrollProgress.style.width = scrolledPercent + '%';
+          }
 
-      // Navbar visual shifting on scroll — mantém transparente no topo, escurece ao rolar
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 30) {
-        navbar.style.background = 'rgba(0, 0, 0, 0.75)';
-        navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
-      } else {
-        navbar.style.background = 'rgba(0, 0, 0, 0)';
-        navbar.style.borderBottom = 'none';
+          if (navbar) {
+            if (winScroll > 30) {
+              navbar.style.background = 'rgba(0, 0, 0, 0.75)';
+              navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+            } else {
+              navbar.style.background = 'rgba(0, 0, 0, 0)';
+              navbar.style.borderBottom = 'none';
+            }
+          }
+          
+          if (videoWrapper && window.innerWidth >= 768) {
+            videoWrapper.style.transform = `translateY(${winScroll * 0.25}px)`;
+          } else if (videoWrapper) {
+            videoWrapper.style.transform = 'none';
+          }
+
+          isScrolling = false;
+        });
+        isScrolling = true;
       }
     });
 
@@ -547,18 +1228,7 @@
       setTimeout(handleTypewriter, 1000);
     });
 
-    // 4. Smooth Parallax Scroll for Video
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
-      const videoWrapper = document.getElementById('video-parallax-wrapper');
-      
-      if (videoWrapper && window.innerWidth >= 768) {
-        // Parallax translate factor of 0.25 (slower movement)
-        videoWrapper.style.transform = `translateY(${scrolled * 0.25}px)`;
-      } else if (videoWrapper) {
-        videoWrapper.style.transform = 'none';
-      }
-    });
+    // Parallax logic moved to centralized scroll listener above
 
     // 5. Floating code particles on canvas
     (function() {
@@ -597,6 +1267,11 @@
       }
 
       function draw() {
+        if (window.scrollY > window.innerHeight * 1.2) {
+          // Pause rendering when hero is completely out of view
+          requestAnimationFrame(draw);
+          return;
+        }
         ctx.clearRect(0, 0, W, H);
         particles.forEach((p, i) => {
           p.y -= p.speed;
@@ -619,7 +1294,123 @@
       draw();
     })();
 
-    // 6. (Glitch effect removed — name displays normally)
+    // 6. Intersection Observer for AOS Animations and Counter Up
+    document.addEventListener("DOMContentLoaded", () => {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Apply delay if exists
+            const delay = entry.target.getAttribute('data-delay');
+            if (delay) {
+              entry.target.style.animationDelay = delay + 'ms';
+            }
+            
+            // Handle fade/scale animations
+            const animType = entry.target.getAttribute('data-aos');
+            if (animType === 'scale-up') {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'scale(1)';
+              entry.target.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            } else if (animType) {
+              entry.target.classList.add('fade-in-up'); // Reusing existing class for simplicity
+            }
+
+            // Handle Counter Up
+            const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(counter => {
+              const target = +counter.getAttribute('data-target');
+              const duration = 1500; // ms
+              const step = target / (duration / 16); // 60fps
+              
+              let current = 0;
+              const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                  counter.innerText = Math.ceil(current);
+                  requestAnimationFrame(updateCounter);
+                } else {
+                  counter.innerText = target;
+                }
+              };
+              updateCounter();
+              counter.classList.remove('counter'); // Prevent re-triggering
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Initial setup for aos elements
+      document.querySelectorAll('[data-aos]').forEach(el => {
+        if (el.getAttribute('data-aos') === 'scale-up') {
+          el.style.opacity = '0';
+          el.style.transform = 'scale(0.9)';
+        } else {
+          el.style.opacity = '0';
+        }
+        observer.observe(el);
+      });
+
+      // 7. 3D Tilt Effect para a Seção 2
+      document.querySelectorAll('#sobre .glass-panel').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          // Efeito mais suave
+          const rotateX = ((y - centerY) / centerY) * -6;
+          const rotateY = ((x - centerX) / centerX) * 6;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+          card.style.transition = 'transform 0.1s ease-out';
+          card.style.zIndex = '20';
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+          card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+          card.style.zIndex = '1';
+        });
+      });
+    });
+
+    // Accordion Toggle
+    function toggleAccordion(element) {
+      const isCurrentlyActive = element.classList.contains('active');
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      if (!isCurrentlyActive) {
+        element.classList.add('active');
+      }
+    }
+
+    // Contact Form Fake Submit
+    function submitForm(event) {
+      event.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const msg = document.getElementById('success-msg');
+      btn.innerHTML = '<iconify-icon icon="lucide:loader-2" class="animate-spin"></iconify-icon> Enviando...';
+      btn.disabled = true;
+      
+      setTimeout(() => {
+        btn.innerHTML = 'Enviado!';
+        btn.classList.add('bg-emerald-500', 'text-white');
+        btn.classList.remove('bg-white', 'text-black');
+        msg.classList.remove('hidden');
+        msg.classList.remove('opacity-0');
+        msg.classList.add('opacity-100');
+        document.getElementById('contact-form').reset();
+      }, 1500);
+    }
   </script>
 </body>
 </html>
