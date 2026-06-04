@@ -157,6 +157,373 @@ body {
   transition: width 0.1s ease-out;
 }
 
+/* ── Unified Experience Showcase Cards ──────────── */
+.showcase-card {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.showcase-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 20px 60px -15px rgba(14, 165, 233, 0.25),
+              0 0 0 1px rgba(56, 189, 248, 0.1);
+}
+
+.showcase-card .card-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(99, 102, 241, 0.05));
+}
+
+.showcase-card .card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  opacity: 0.88;
+}
+
+.showcase-card:hover .card-image-wrap img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.showcase-card .card-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.showcase-card .card-image-wrap .card-overlay-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.showcase-card .card-body {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.showcase-card .card-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+/* Card without image — icon placeholder */
+.showcase-card .card-icon-hero {
+  position: relative;
+  overflow: hidden;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-card .card-icon-hero .icon-bg {
+  font-size: 4rem;
+  opacity: 0.15;
+  transition: all 0.5s ease;
+}
+
+.showcase-card:hover .card-icon-hero .icon-bg {
+  opacity: 0.3;
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* Featured card (spans 2 columns) */
+.showcase-featured {
+  grid-column: 1 / -1;
+}
+
+/* Card tech tags */
+.card-tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-tech-tag:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+/* Section category pills */
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.category-pill:hover,
+.category-pill.active {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+/* Accordion in card */
+.card-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  opacity: 0;
+}
+
+.card-details.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.card-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-expand-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card-expand-btn .expand-chevron {
+  transition: transform 0.3s ease;
+}
+
+.card-expand-btn.expanded .expand-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Soft Skills Gamified (FIFA Card Style) ──────────── */
+.fut-card-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  perspective: 1000px;
+  margin: 0 auto;
+  /* Levitating animation when not hovered */
+  animation: levitate 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes levitate {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.fut-card {
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(234, 179, 8, 0.25),
+              inset 0 0 0 2px rgba(255, 215, 0, 0.6),
+              inset 0 0 20px rgba(255, 215, 0, 0.2);
+  background: linear-gradient(135deg, #1f2937, #000000);
+  transform-style: preserve-3d;
+}
+
+.fut-card-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(125deg, transparent 20%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.4) 60%, transparent 80%);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+.fut-card-container:hover .fut-card-bg {
+  opacity: 1;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.fut-card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background: radial-gradient(circle at 50% 30%, rgba(234, 179, 8, 0.15), transparent 60%);
+}
+
+.fut-top-info {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.fut-rating {
+  font-size: 2.75rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #fde047; /* yellow-300 */
+}
+
+.fut-position {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.fut-role {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  letter-spacing: 0.05em;
+  color: #d1d5db;
+}
+
+.fut-icon {
+  font-size: 1.5rem;
+  color: #fde047;
+}
+
+.fut-flag {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  z-index: 3;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.fut-flag span {
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.fut-player-img {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: auto;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.fut-player-img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+}
+
+.fut-bottom-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.fut-name {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  color: #fde047;
+}
+
+.fut-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #e5e7eb;
+  border-top: 1px solid rgba(253, 224, 71, 0.3);
+  padding-top: 0.35rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.fut-barcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fut-barcode span {
+  font-size: 0.45rem;
+  letter-spacing: 0.15em;
+  margin-top: 0.1rem;
+}
+
 /* Hide animations for users with prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .fade-in-up {
@@ -168,6 +535,9 @@ body {
     animation: none !important;
   }
   .typing-cursor {
+    animation: none !important;
+  }
+  .fut-card-container {
     animation: none !important;
   }
 }

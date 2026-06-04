@@ -340,8 +340,7 @@
       <div class="hidden md:flex items-center gap-8">
         <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#sobre">Sobre</a>
         <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#tecnologias">Tecnologias</a>
-        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#experiencia">Experiência</a>
-        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#projetos">Projetos</a>
+        <a class="hover:text-white transition-colors text-xs font-medium text-white/60 tracking-wider uppercase" href="#experiencia">Experiência & Projetos</a>
       </div>
 
       <!-- Actions Right -->
@@ -363,8 +362,7 @@
   <div class="fixed top-16 left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/5 hidden flex-col px-6 py-6 z-40 gap-4 md:hidden transition-all duration-300" id="mobile-menu">
     <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#sobre" onclick="toggleMobileMenu()">Sobre</a>
     <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#tecnologias" onclick="toggleMobileMenu()">Tecnologias</a>
-    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#experiencia" onclick="toggleMobileMenu()">Experiência</a>
-    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#projetos" onclick="toggleMobileMenu()">Projetos</a>
+    <a class="hover:text-white text-sm font-medium text-white/70 py-2 border-b border-white/5" href="#experiencia" onclick="toggleMobileMenu()">Experiência & Projetos</a>
   </div>
 
   <!-- Hero Section -->
@@ -419,14 +417,14 @@
           <!-- Action Buttons -->
           <div class="fade-in-up delay-800 flex flex-col sm:flex-row gap-4 items-center pt-2">
             <!-- Primary Button: Follow Glow Cursor -->
-            <a href="#projetos" class="group w-full sm:w-auto overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.6)] hover:scale-[1.02] rounded-full p-[1px] relative block" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--x', (event.clientX - rect.left) + 'px'); this.style.setProperty('--y', (event.clientY - rect.top) + 'px');">
+            <a href="#experiencia" class="group w-full sm:w-auto overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.6)] hover:scale-[1.02] rounded-full p-[1px] relative block" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--x', (event.clientX - rect.left) + 'px'); this.style.setProperty('--y', (event.clientY - rect.top) + 'px');">
               <!-- Radial follow gradient -->
               <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: radial-gradient(150px circle at var(--x) var(--y), #0ea5e9, #3b82f6, transparent 60%);"></span>
               <!-- Normal Border -->
               <span class="absolute inset-0 bg-white/20 opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
               <!-- Inside Content -->
               <span class="flex items-center justify-center gap-2 transition-all duration-300 group-hover:bg-black/95 text-xs font-bold uppercase tracking-wider text-white bg-black w-full h-full border-white/5 border rounded-full py-4 px-8 relative backdrop-blur-3xl whitespace-nowrap">
-                Ver meus projetos
+                Ver experiência & projetos
                 <iconify-icon class="text-sky-400 transition-transform duration-300 group-hover:translate-x-1" icon="lucide:arrow-right" width="14"></iconify-icon>
               </span>
             </a>
@@ -704,6 +702,197 @@
     </div>
   </section>
 
+  <!-- Section 2.5: Soft Skills Gamificadas -->
+  <section id="soft-skills" class="relative max-w-7xl mx-auto px-6 py-24 z-10 scroll-mt-20">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+      
+      <!-- Coluna Esquerda: Contexto -->
+      <div data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#102422] border border-[#1b3d39] mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+          <span class="text-xs font-bold text-white tracking-widest uppercase">Soft Skills</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">Skill Ratings</h2>
+        <h3 class="text-xl md:text-2xl text-neutral-400 font-medium mb-6">Meu Desempenho Fora do Código.</h3>
+        
+        <p class="text-neutral-400 text-sm leading-relaxed mb-8 max-w-md">
+          Tão importante quanto saber programar é saber colaborar, liderar, aprender e se adaptar.<br><br>
+          Aqui estão minhas principais soft skills e como eu me avalio nelas.
+        </p>
+
+        <div class="glass-panel p-5 rounded-2xl border border-white/5 bg-white/[0.02] flex items-start gap-4 hover:bg-white/[0.04] transition-colors">
+          <iconify-icon icon="lucide:shield-check" class="text-orange-400 text-2xl shrink-0 mt-1"></iconify-icon>
+          <p class="text-xs text-neutral-300 leading-relaxed">
+            Autoavaliação honesta baseada nas minhas experiências até aqui. Sempre buscando evoluir.
+          </p>
+        </div>
+      </div>
+
+      <!-- Coluna Central: O Card FIFA -->
+      <div class="flex justify-center" data-aos="fade-up" data-delay="150">
+        <div class="fut-card-container" data-tilt data-tilt-glare data-tilt-max-glare="0.5" data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <div class="fut-card">
+            <div class="fut-card-bg"></div>
+            <div class="fut-card-content">
+              <!-- Top Info -->
+              <div class="fut-top-info">
+                <div class="fut-rating text-white drop-shadow-md">85</div>
+                <div class="fut-position text-white drop-shadow-md">OVR</div>
+                <iconify-icon icon="lucide:user" class="fut-icon drop-shadow-md" style="color: white;"></iconify-icon>
+                <div class="fut-role text-white drop-shadow-md">DEV FULL<br>STACK</div>
+              </div>
+              
+              <!-- Flag -->
+              <div class="fut-flag">
+                <iconify-icon icon="twemoji:flag-brazil" class="text-2xl"></iconify-icon>
+                <span>BRA</span>
+              </div>
+
+              <!-- Player Image -->
+              <div class="fut-player-img" style="top: 0; left: 0; bottom: 0; width: 100%; height: 100%; transform: none; display: block; overflow: hidden; border-radius: 16px;">
+                <img src="assets/images/panini_card.jpg" alt="Keven" style="width: 100%; height: 100%; object-fit: cover; object-position: center 46%; transform: scale(1.15);" />
+              </div>
+
+              <!-- Bottom Info -->
+              <div class="fut-bottom-info">
+                <h3 class="fut-name">KEVEN</h3>
+                <div class="fut-title">DEVELOPER</div>
+                <div class="fut-barcode">
+                  <iconify-icon icon="bi:upc-scan" class="text-4xl"></iconify-icon>
+                  <span>CODE-404-7A06</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna Direita: Métricas -->
+      <div class="space-y-6" data-aos="fade-up" data-delay="300">
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl bg-[#0a0f12] border border-white/5 relative overflow-hidden">
+          <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none"></div>
+          
+          <h4 class="text-emerald-400 font-bold tracking-wider text-sm mb-8 flex items-center gap-2">
+            <iconify-icon icon="lucide:star"></iconify-icon> SOFT SKILLS
+          </h4>
+
+          <div class="space-y-6 relative z-10">
+            <!-- Skill 1 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center">
+                    <iconify-icon icon="lucide:message-circle" class="text-sky-400"></iconify-icon>
+                  </div>
+                  <span class="text-xs font-bold text-white tracking-wider">COMUNICAÇÃO</span>
+                </div>
+                <span class="text-sm font-bold text-white">70</span>
+              </div>
+              <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-sky-500 rounded-full progress-bar-fill shadow-[0_0_10px_rgba(14,165,233,0.8)]" style="--target-width: 70%"></div>
+              </div>
+            </div>
+
+            <!-- Skill 2 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center">
+                    <iconify-icon icon="lucide:lightbulb" class="text-sky-400"></iconify-icon>
+                  </div>
+                  <span class="text-xs font-bold text-white tracking-wider">CRIATIVIDADE</span>
+                </div>
+                <span class="text-sm font-bold text-white">90</span>
+              </div>
+              <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-sky-500 rounded-full progress-bar-fill shadow-[0_0_10px_rgba(14,165,233,0.8)]" style="--target-width: 90%"></div>
+              </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center">
+                    <iconify-icon icon="lucide:flame" class="text-sky-400"></iconify-icon>
+                  </div>
+                  <span class="text-xs font-bold text-white tracking-wider">PERSISTÊNCIA</span>
+                </div>
+                <span class="text-sm font-bold text-white">90</span>
+              </div>
+              <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-sky-500 rounded-full progress-bar-fill shadow-[0_0_10px_rgba(14,165,233,0.8)]" style="--target-width: 90%"></div>
+              </div>
+            </div>
+
+            <!-- Skill 4 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center">
+                    <iconify-icon icon="lucide:users" class="text-sky-400"></iconify-icon>
+                  </div>
+                  <span class="text-xs font-bold text-white tracking-wider">TRABALHO EM EQUIPE</span>
+                </div>
+                <span class="text-sm font-bold text-white">80</span>
+              </div>
+              <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-sky-500 rounded-full progress-bar-fill shadow-[0_0_10px_rgba(14,165,233,0.8)]" style="--target-width: 80%"></div>
+              </div>
+            </div>
+
+            <!-- Skill 5 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center">
+                    <iconify-icon icon="lucide:book-open" class="text-sky-400"></iconify-icon>
+                  </div>
+                  <span class="text-xs font-bold text-white tracking-wider">CAPACIDADE DE APRENDER</span>
+                </div>
+                <span class="text-sm font-bold text-white">90</span>
+              </div>
+              <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-sky-500 rounded-full progress-bar-fill shadow-[0_0_10px_rgba(14,165,233,0.8)]" style="--target-width: 90%"></div>
+              </div>
+            </div>
+
+            <!-- Skill 6 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center">
+                    <iconify-icon icon="lucide:crown" class="text-sky-400"></iconify-icon>
+                  </div>
+                  <span class="text-xs font-bold text-white tracking-wider">LIDERANÇA</span>
+                </div>
+                <span class="text-sm font-bold text-white">83</span>
+              </div>
+              <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-sky-500 rounded-full progress-bar-fill shadow-[0_0_10px_rgba(14,165,233,0.8)]" style="--target-width: 83%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Overall Card -->
+        <div class="glass-panel p-6 rounded-3xl bg-[#0a0f12] border border-white/5 flex items-center gap-6">
+          <div class="flex flex-col items-center justify-center shrink-0">
+            <iconify-icon icon="lucide:star" class="text-emerald-400 text-xl mb-1 drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]"></iconify-icon>
+            <span class="text-4xl font-black text-emerald-400 tracking-tighter leading-none drop-shadow-[0_0_12px_rgba(52,211,153,0.4)]">85</span>
+          </div>
+          <div>
+            <h5 class="text-xs font-bold text-white tracking-widest mb-1">OVERALL</h5>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Focado em crescer todos os dias e gerar impacto real com tecnologia.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
   <!-- Section 3: Tecnologias -->
   <section id="tecnologias" class="relative max-w-7xl mx-auto px-6 py-24 z-10 scroll-mt-20">
     <div class="mb-12" data-aos="fade-in-up">
@@ -804,15 +993,15 @@
     </div>
   </section>
 
-  <!-- Section 4: Experiência Profissional -->
-  <section id="experiencia" class="relative max-w-4xl mx-auto px-6 py-24 z-10 scroll-mt-20">
-    <div class="mb-12 text-center" data-aos="fade-in-up">
-      <span class="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 block">Onde trabalhei</span>
-      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Experiência profissional</h2>
+  <!-- Section 4: Experiência & Projetos (Unified) -->
+  <section id="experiencia" class="relative max-w-7xl mx-auto px-6 py-24 z-10 scroll-mt-20">
+    <div class="mb-12" data-aos="fade-in-up">
+      <span class="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 block">Onde trabalho & o que construí</span>
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Experiência & Projetos</h2>
     </div>
 
-    <!-- Cabeçalho da Empresa -->
-    <div class="glass-panel p-6 rounded-3xl mb-8 flex flex-col md:flex-row items-center gap-6 justify-between" data-aos="fade-up">
+    <!-- Company Header -->
+    <div class="glass-panel p-6 rounded-3xl mb-10 flex flex-col md:flex-row items-center gap-6 justify-between" data-aos="fade-up">
       <div class="flex items-center gap-4">
         <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
           <iconify-icon icon="lucide:tv" class="text-3xl text-emerald-400"></iconify-icon>
@@ -822,279 +1011,276 @@
           <p class="text-neutral-400">Desenvolvedor Full Stack & Mobile</p>
         </div>
       </div>
-      <div class="text-xs font-mono text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-        Desde 2022
+      <div class="flex items-center gap-3">
+        <div class="text-xs font-mono text-emerald-400 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-2">
+          <span class="pulsating-dot" style="width:6px;height:6px;"></span>
+          Desde 2022
+        </div>
       </div>
     </div>
 
-    <!-- Projetos Accordion -->
-    <div class="space-y-4" id="experience-accordion">
-      <!-- Card 1 -->
-      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="100" onclick="toggleAccordion(this)">
-        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400">
-              <iconify-icon icon="lucide:newspaper" width="20"></iconify-icon>
-            </div>
-            <div>
-              <h4 class="text-white font-medium">Portal de Notícias — ifronteira.com</h4>
-              <p class="text-xs text-neutral-500 mt-1 font-mono">PHP · JavaScript · MySQL · Analytics</p>
-            </div>
-          </div>
-          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
-        </div>
-        <div class="accordion-content">
-          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
-            Desenvolvimento e evolução do ifronteira.com, portal completo de notícias e blogs com espaço publicitário e banners rotativos. Responsável por auditorias de performance e SEO, implementação de meta tags completas, Open Graph para redes sociais, sitemaps dinâmicos, editor de texto rico com CKEditor e integração com Google Analytics para rastrear métricas de vídeo, visualizações e cliques em banners.
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">PHP</span>
-              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">JavaScript</span>
-              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">MySQL</span>
-              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">CKEditor</span>
-              <span class="text-[10px] uppercase tracking-wider text-sky-300 bg-sky-500/10 px-2 py-1 rounded">Google Analytics</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid">
 
-      <!-- Card 2 -->
-      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="150" onclick="toggleAccordion(this)">
-        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
-              <iconify-icon icon="lucide:bot" width="20"></iconify-icon>
-            </div>
-            <div>
-              <h4 class="text-white font-medium">Automação de Vídeos — YouTube → Site</h4>
-              <p class="text-xs text-neutral-500 mt-1 font-mono">PHP · YouTube API · MySQL</p>
-            </div>
+      <!-- ═══ FEATURED: Portal ifronteira ═══ -->
+      <div class="showcase-card showcase-featured cursor-pointer" data-aos="fade-up" data-delay="100" onclick="window.open('https://ifronteira.com', '_blank')">
+        <a href="https://ifronteira.com" target="_blank" rel="noopener noreferrer" class="block card-image-wrap" onclick="event.stopPropagation()">
+          <img src="assets/ifronteira-preview.png" alt="Portal de Notícias ifronteira.com" loading="lazy" />
+          <div class="card-overlay-badge">
+            <span class="text-xs font-mono text-sky-400 px-3 py-1.5 rounded-full bg-black/60 border border-sky-500/30 backdrop-blur-md flex items-center gap-2">
+              <iconify-icon icon="lucide:globe" width="12"></iconify-icon> Web
+            </span>
           </div>
-          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
-        </div>
-        <div class="accordion-content">
-          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
-            Script em PHP que monitora o canal da TV Fronteira no YouTube. Ao detectar um novo vídeo publicado, insere o conteúdo automaticamente no portal de notícias — zero intervenção manual, publicação imediata.
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="200" onclick="toggleAccordion(this)">
-        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
-              <iconify-icon icon="lucide:monitor-play" width="20"></iconify-icon>
-            </div>
-            <div>
-              <h4 class="text-white font-medium">Sistema TEO — Telas para Jornalismo ao Vivo</h4>
-              <p class="text-xs text-neutral-500 mt-1 font-mono">Vue.js · JavaScript · CSS Animations</p>
-            </div>
-          </div>
-          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
-        </div>
-        <div class="accordion-content">
-          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
-            Criação e configuração de telas interativas touch para o sistema TEO, utilizado por jornalistas durante os telejornais ao vivo. Em parceria com o videografismo, também desenvolvi telas animadas de temperatura, boletins informativos e artes exibidas no ar.
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="250" onclick="toggleAccordion(this)">
-        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400">
-              <iconify-icon icon="lucide:timer" width="20"></iconify-icon>
-            </div>
-            <div>
-              <h4 class="text-white font-medium">Cronômetro Sincronizado — Debate</h4>
-              <p class="text-xs text-neutral-500 mt-1 font-mono">Node.js · WebSocket · JavaScript</p>
-            </div>
-          </div>
-          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
-        </div>
-        <div class="accordion-content">
-          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
-            Cronômetro em tempo real para o debate político transmitido pela TV Fronteira. Desenvolvido com Node.js e WebSocket: ao iniciar em uma tela, todas as outras sincronizavam simultaneamente, sem delay perceptível.
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="300" onclick="toggleAccordion(this)">
-        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
-              <iconify-icon icon="lucide:smartphone" width="20"></iconify-icon>
-            </div>
-            <div>
-              <h4 class="text-white font-medium">Aplicativo de Rádio — Android & iOS</h4>
-              <p class="text-xs text-neutral-500 mt-1 font-mono">Flutter · Firebase · PHP</p>
-            </div>
-          </div>
-          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
-        </div>
-        <div class="accordion-content">
-          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
-            App mobile completo para Android e iOS: rádio ao vivo via stream, lives, vídeos do YouTube e promoções. Diferencial técnico: Server-Driven UI — cores, logo e configurações alteradas remotamente sem nova publicação nas lojas. Painel interno para controle de lives e stream em tempo real. Automação de programas: script PHP detecta o início de um programa e o insere no app automaticamente. Monitorado via Firebase Analytics.
-          </div>
-        </div>
-      </div>
-      
-      <!-- Card 6 -->
-      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="350" onclick="toggleAccordion(this)">
-        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400">
-              <iconify-icon icon="lucide:mic" width="20"></iconify-icon>
-            </div>
-            <div>
-              <h4 class="text-white font-medium">Automação Voz do Brasil</h4>
-              <p class="text-xs text-neutral-500 mt-1 font-mono">Python · Web Scraping</p>
-            </div>
-          </div>
-          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
-        </div>
-        <div class="accordion-content">
-          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
-            Script Python que acessa automaticamente o site da Rádio Gov, localiza e baixa o programa Voz do Brasil do dia, deixando-o pronto para transmissão na rádio. Processo antes manual, agora 100% automático.
-          </div>
-        </div>
-      </div>
-      
-      <!-- Card 7 -->
-      <div class="accordion-item glass-panel rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-delay="400" onclick="toggleAccordion(this)">
-        <div class="p-5 flex items-center justify-between bg-white/[0.01] hover:bg-white/[0.03] transition-colors">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400">
-              <iconify-icon icon="lucide:pie-chart" width="20"></iconify-icon>
-            </div>
-            <div>
-              <h4 class="text-white font-medium">Sistema de BI — Business Intelligence</h4>
-              <p class="text-xs text-neutral-500 mt-1 font-mono">PHP · Vue.js · MySQL</p>
-            </div>
-          </div>
-          <iconify-icon icon="lucide:chevron-down" class="text-white/40 chevron" width="20"></iconify-icon>
-        </div>
-        <div class="accordion-content">
-          <div class="p-5 pt-0 border-t border-white/5 mt-4 text-sm text-neutral-300 leading-relaxed">
-            Desenvolvimento de módulos e auditorias em sistema interno de BI. Trabalho focado em identificação de gargalos, resolução de problemas de performance e melhoria na confiabilidade dos dados exibidos para as equipes internas.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Section 5: Projetos em Destaque -->
-  <section id="projetos" class="relative max-w-7xl mx-auto px-6 py-24 z-10 scroll-mt-20">
-    <div class="mb-12" data-aos="fade-in-up">
-      <span class="text-xs font-mono uppercase tracking-widest text-sky-400 mb-2 block">O que já construí</span>
-      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white">Projetos em destaque</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Card Destaque (2 colunas) -->
-      <div class="glass-panel rounded-3xl overflow-hidden group md:col-span-2 hover:-translate-y-2 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.5)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="100">
-        <a href="https://ifronteira.com" target="_blank" class="block h-auto w-full relative overflow-hidden transition-transform duration-500 border-b border-white/5 bg-black/50">
-          <img src="assets/ifronteira-preview.png" alt="Portal ifronteira" class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 origin-top" />
         </a>
-        <div class="p-8">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-sky-400 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20">Web</span>
-            <div class="flex gap-3">
-              <a href="https://ifronteira.com" target="_blank" class="text-white/50 hover:text-white transition-colors" aria-label="Acessar projeto">
-                <iconify-icon icon="lucide:external-link" width="20"></iconify-icon>
+        <div class="card-body">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xl md:text-2xl font-bold text-white">Portal de Notícias — ifronteira.com</h3>
+            <a href="https://ifronteira.com" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-sky-400 transition-colors" aria-label="Acessar ifronteira" onclick="event.stopPropagation()">
+              <iconify-icon icon="lucide:external-link" width="18"></iconify-icon>
+            </a>
+          </div>
+          <p class="text-neutral-400 text-sm mb-4 leading-relaxed">Portal completo de notícias e blogs com espaço publicitário, banners rotativos, SEO avançado e integração com Google Analytics.</p>
+
+          <!-- Expandable Details -->
+          <div class="card-details" id="details-ifronteira">
+            <div class="pt-4 pb-2 border-t border-white/5 text-sm text-neutral-300 leading-relaxed">
+              Desenvolvimento e evolução do ifronteira.com, portal completo de notícias e blogs com espaço publicitário e banners rotativos. Responsável por auditorias de performance e SEO, implementação de meta tags completas, Open Graph para redes sociais, sitemaps dinâmicos, editor de texto rico com CKEditor e integração com Google Analytics para rastrear métricas de vídeo, visualizações e cliques em banners.
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="card-tech-tag">PHP</span>
+              <span class="card-tech-tag">JavaScript</span>
+              <span class="card-tech-tag">MySQL</span>
+              <span class="card-tech-tag">CKEditor</span>
+              <span class="card-tech-tag">Google Analytics</span>
+            </div>
+            <button class="card-expand-btn" onclick="toggleCardDetails(event, 'details-ifronteira', this)">
+              <span>Detalhes</span>
+              <iconify-icon icon="lucide:chevron-down" width="14" class="expand-chevron"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ Sistema TEO ═══ -->
+      <div class="showcase-card" data-aos="fade-up" data-delay="150">
+        <div class="card-image-wrap">
+          <img src="assets/teo-preview.jpg" alt="Sistema TEO — Telas para Jornalismo ao Vivo" loading="lazy" />
+          <div class="card-overlay-badge">
+            <span class="text-xs font-mono text-purple-400 px-3 py-1.5 rounded-full bg-black/60 border border-purple-500/30 backdrop-blur-md flex items-center gap-2">
+              <iconify-icon icon="lucide:monitor-play" width="12"></iconify-icon> Broadcast
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="text-lg font-bold text-white mb-2">Sistema TEO — Telas ao Vivo</h3>
+          <p class="text-neutral-400 text-sm mb-4 leading-relaxed">Telas interativas touch para jornalismo ao vivo, com animações de temperatura e artes exibidas no ar.</p>
+
+          <div class="card-details" id="details-teo">
+            <div class="pt-4 pb-2 border-t border-white/5 text-sm text-neutral-300 leading-relaxed">
+              Criação e configuração de telas interativas touch para o sistema TEO, utilizado por jornalistas durante os telejornais ao vivo. Em parceria com o videografismo, também desenvolvi telas animadas de temperatura, boletins informativos e artes exibidas no ar.
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="card-tech-tag">Vue.js</span>
+              <span class="card-tech-tag">JavaScript</span>
+              <span class="card-tech-tag">CSS Animations</span>
+            </div>
+            <button class="card-expand-btn" onclick="toggleCardDetails(event, 'details-teo', this)">
+              <span>Detalhes</span>
+              <iconify-icon icon="lucide:chevron-down" width="14" class="expand-chevron"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ Aplicativo de Rádio ═══ -->
+      <div class="showcase-card" data-aos="fade-up" data-delay="200">
+        <div class="card-image-wrap">
+          <img src="assets/radio-preview.jpg" alt="Aplicativo de Rádio — Android & iOS" loading="lazy" />
+          <div class="card-overlay-badge">
+            <span class="text-xs font-mono text-blue-400 px-3 py-1.5 rounded-full bg-black/60 border border-blue-500/30 backdrop-blur-md flex items-center gap-2">
+              <iconify-icon icon="lucide:smartphone" width="12"></iconify-icon> Mobile
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <h3 class="text-lg font-bold text-white">App de Rádio — Android & iOS</h3>
+            <div class="flex items-center gap-3">
+              <a href="https://play.google.com/store/apps/developer?id=tvfronteira_apps" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-emerald-400 transition-colors" aria-label="Google Play" onclick="event.stopPropagation()">
+                <iconify-icon icon="logos:google-play-icon" width="20"></iconify-icon>
+              </a>
+              <a href="https://apps.apple.com/br/developer/tv-fronteira-paulista-ltda/id1057339521" target="_blank" rel="noopener noreferrer" class="text-white hover:text-white/80 transition-colors" aria-label="App Store" onclick="event.stopPropagation()">
+                <iconify-icon icon="mdi:apple" width="22"></iconify-icon>
               </a>
             </div>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-3">Portal de Notícias — ifronteira.com</h3>
-          <p class="text-neutral-400 text-sm mb-6 max-w-3xl">Portal completo de notícias e blogs com espaço publicitário, banners rotativos, SEO avançado e integração com Google Analytics.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">PHP</span>
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">JavaScript</span>
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">MySQL</span>
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Google Analytics</span>
+          <p class="text-neutral-400 text-sm mb-4 leading-relaxed">Aplicativo com rádio ao vivo, lives, vídeos e Server-Driven UI para atualização remota sem publicação nas lojas.</p>
+
+          <div class="card-details" id="details-radio">
+            <div class="pt-4 pb-2 border-t border-white/5 text-sm text-neutral-300 leading-relaxed">
+              App mobile completo para Android e iOS: rádio ao vivo via stream, lives, vídeos do YouTube e promoções. Diferencial técnico: Server-Driven UI — cores, logo e configurações alteradas remotamente sem nova publicação nas lojas. Painel interno para controle de lives e stream em tempo real. Automação de programas: script PHP detecta o início de um programa e o insere no app automaticamente. Monitorado via Firebase Analytics.
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="card-tech-tag">Flutter</span>
+              <span class="card-tech-tag">Firebase</span>
+              <span class="card-tech-tag">PHP</span>
+            </div>
+            <button class="card-expand-btn" onclick="toggleCardDetails(event, 'details-radio', this)">
+              <span>Detalhes</span>
+              <iconify-icon icon="lucide:chevron-down" width="14" class="expand-chevron"></iconify-icon>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="150">
-        <div class="h-40 w-full bg-gradient-to-br from-purple-500/20 to-pink-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
-          <iconify-icon icon="lucide:smartphone" class="text-5xl text-purple-400/60 absolute group-hover:scale-110 group-hover:rotate-[-5deg] transition-transform duration-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]"></iconify-icon>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-purple-400 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">Mobile</span>
-            <span class="text-xs text-white/30">Privado</span>
+      <!-- ═══ Automação YouTube ═══ -->
+      <div class="showcase-card" data-aos="fade-up" data-delay="250">
+        <div class="card-icon-hero" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(234, 88, 12, 0.08));">
+          <iconify-icon icon="lucide:youtube" class="icon-bg text-red-400"></iconify-icon>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          <div class="card-overlay-badge" style="position:absolute; top:1rem; left:1rem; z-index:2;">
+            <span class="text-xs font-mono text-red-400 px-3 py-1.5 rounded-full bg-black/60 border border-red-500/30 backdrop-blur-md flex items-center gap-2">
+              <iconify-icon icon="lucide:bot" width="12"></iconify-icon> Automação
+            </span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">App de Rádio — Android & iOS</h3>
-          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Aplicativo com rádio ao vivo, lives e Server-Driven UI para atualização remota sem publicação nas lojas.</p>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Flutter</span>
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Firebase</span>
+        </div>
+        <div class="card-body">
+          <h3 class="text-lg font-bold text-white mb-2">Automação YouTube → Portal</h3>
+          <p class="text-neutral-400 text-sm mb-4 leading-relaxed">Script que detecta novos vídeos no YouTube e publica automaticamente no portal de notícias — zero intervenção manual.</p>
+
+          <div class="card-details" id="details-youtube">
+            <div class="pt-4 pb-2 border-t border-white/5 text-sm text-neutral-300 leading-relaxed">
+              Script em PHP que monitora o canal da TV Fronteira no YouTube. Ao detectar um novo vídeo publicado, insere o conteúdo automaticamente no portal de notícias — zero intervenção manual, publicação imediata.
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="card-tech-tag">PHP</span>
+              <span class="card-tech-tag">YouTube API</span>
+              <span class="card-tech-tag">MySQL</span>
+            </div>
+            <button class="card-expand-btn" onclick="toggleCardDetails(event, 'details-youtube', this)">
+              <span>Detalhes</span>
+              <iconify-icon icon="lucide:chevron-down" width="14" class="expand-chevron"></iconify-icon>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(239,68,68,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="200">
-        <div class="h-40 w-full bg-gradient-to-br from-red-500/20 to-orange-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
-          <iconify-icon icon="lucide:youtube" class="text-5xl text-red-400/60 absolute group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"></iconify-icon>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-red-400 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">Automação</span>
-            <span class="text-xs text-white/30">Privado</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Automação YouTube → Portal</h3>
-          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Script que detecta novos vídeos no YouTube e publica automaticamente no portal de notícias.</p>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">PHP</span>
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">YouTube API</span>
+      <!-- ═══ Cronômetro Sincronizado ═══ -->
+      <div class="showcase-card" data-aos="fade-up" data-delay="300">
+        <div class="card-icon-hero" style="background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(245, 158, 11, 0.08));">
+          <iconify-icon icon="lucide:timer" class="icon-bg text-yellow-400"></iconify-icon>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          <div class="card-overlay-badge" style="position:absolute; top:1rem; left:1rem; z-index:2;">
+            <span class="text-xs font-mono text-yellow-400 px-3 py-1.5 rounded-full bg-black/60 border border-yellow-500/30 backdrop-blur-md flex items-center gap-2">
+              <iconify-icon icon="lucide:radio" width="12"></iconify-icon> Real-time
+            </span>
           </div>
         </div>
-      </div>
-      
-      <!-- Card 4 -->
-      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="250">
-        <div class="h-40 w-full bg-gradient-to-br from-emerald-500/20 to-green-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
-          <iconify-icon icon="lucide:monitor-play" class="text-5xl text-emerald-400/60 absolute group-hover:scale-110 group-hover:rotate-[-3deg] transition-transform duration-500 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]"></iconify-icon>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">Broadcast</span>
-            <span class="text-xs text-white/30">Privado</span>
+        <div class="card-body">
+          <h3 class="text-lg font-bold text-white mb-2">Cronômetro Sincronizado — Debate</h3>
+          <p class="text-neutral-400 text-sm mb-4 leading-relaxed">Sistema real-time via WebSocket, com sincronização perfeita entre múltiplas telas simultâneas durante debates ao vivo.</p>
+
+          <div class="card-details" id="details-crono">
+            <div class="pt-4 pb-2 border-t border-white/5 text-sm text-neutral-300 leading-relaxed">
+              Cronômetro em tempo real para o debate político transmitido pela TV Fronteira. Desenvolvido com Node.js e WebSocket: ao iniciar em uma tela, todas as outras sincronizavam simultaneamente, sem delay perceptível.
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Sistema TEO — Telas ao Vivo</h3>
-          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Telas interativas touch para jornalismo ao vivo, com animações e artes exibidas no ar.</p>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Vue.js</span>
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">CSS Animations</span>
+
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="card-tech-tag">Node.js</span>
+              <span class="card-tech-tag">WebSocket</span>
+              <span class="card-tech-tag">JavaScript</span>
+            </div>
+            <button class="card-expand-btn" onclick="toggleCardDetails(event, 'details-crono', this)">
+              <span>Detalhes</span>
+              <iconify-icon icon="lucide:chevron-down" width="14" class="expand-chevron"></iconify-icon>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Card 5 -->
-      <div class="glass-panel rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(234,179,8,0.4)] transition-all duration-500 relative z-10" data-aos="fade-up" data-delay="300">
-        <div class="h-40 w-full bg-gradient-to-br from-yellow-500/20 to-orange-900/40 relative flex items-center justify-center overflow-hidden group-hover:scale-[1.05] transition-transform duration-700">
-          <iconify-icon icon="lucide:timer" class="text-5xl text-yellow-400/60 absolute group-hover:scale-110 group-hover:rotate-[5deg] transition-transform duration-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]"></iconify-icon>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-yellow-400 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20">Real-time</span>
-            <span class="text-xs text-white/30">Privado</span>
+      <!-- ═══ Automação Voz do Brasil ═══ -->
+      <div class="showcase-card" data-aos="fade-up" data-delay="350">
+        <div class="card-icon-hero" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.08));">
+          <iconify-icon icon="lucide:mic" class="icon-bg text-emerald-400"></iconify-icon>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          <div class="card-overlay-badge" style="position:absolute; top:1rem; left:1rem; z-index:2;">
+            <span class="text-xs font-mono text-emerald-400 px-3 py-1.5 rounded-full bg-black/60 border border-emerald-500/30 backdrop-blur-md flex items-center gap-2">
+              <iconify-icon icon="lucide:bot" width="12"></iconify-icon> Automação
+            </span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Cronômetro Sincronizado</h3>
-          <p class="text-neutral-400 text-sm mb-4 line-clamp-2">Sistema de cronômetro real-time via WebSocket, com sincronização perfeita entre múltiplas telas simultâneas.</p>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">Node.js</span>
-            <span class="text-[10px] uppercase tracking-wider text-neutral-300 bg-white/5 border border-white/10 px-2 py-1 rounded">WebSocket</span>
+        </div>
+        <div class="card-body">
+          <h3 class="text-lg font-bold text-white mb-2">Automação Voz do Brasil</h3>
+          <p class="text-neutral-400 text-sm mb-4 leading-relaxed">Script que baixa automaticamente o programa Voz do Brasil do dia, eliminando processo manual.</p>
+
+          <div class="card-details" id="details-voz">
+            <div class="pt-4 pb-2 border-t border-white/5 text-sm text-neutral-300 leading-relaxed">
+              Script Python que acessa automaticamente o site da Rádio Gov, localiza e baixa o programa Voz do Brasil do dia, deixando-o pronto para transmissão na rádio. Processo antes manual, agora 100% automático.
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="card-tech-tag">Python</span>
+              <span class="card-tech-tag">Web Scraping</span>
+            </div>
+            <button class="card-expand-btn" onclick="toggleCardDetails(event, 'details-voz', this)">
+              <span>Detalhes</span>
+              <iconify-icon icon="lucide:chevron-down" width="14" class="expand-chevron"></iconify-icon>
+            </button>
           </div>
         </div>
       </div>
-      
+
+      <!-- ═══ Sistema BI ═══ -->
+      <div class="showcase-card" data-aos="fade-up" data-delay="400">
+        <div class="card-icon-hero" style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(234, 88, 12, 0.08));">
+          <iconify-icon icon="lucide:pie-chart" class="icon-bg text-orange-400"></iconify-icon>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          <div class="card-overlay-badge" style="position:absolute; top:1rem; left:1rem; z-index:2;">
+            <span class="text-xs font-mono text-orange-400 px-3 py-1.5 rounded-full bg-black/60 border border-orange-500/30 backdrop-blur-md flex items-center gap-2">
+              <iconify-icon icon="lucide:bar-chart-3" width="12"></iconify-icon> BI
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="text-lg font-bold text-white mb-2">Sistema de BI — Business Intelligence</h3>
+          <p class="text-neutral-400 text-sm mb-4 leading-relaxed">Módulos e auditorias em sistema interno de BI com foco em performance e confiabilidade dos dados.</p>
+
+          <div class="card-details" id="details-bi">
+            <div class="pt-4 pb-2 border-t border-white/5 text-sm text-neutral-300 leading-relaxed">
+              Desenvolvimento de módulos e auditorias em sistema interno de BI. Trabalho focado em identificação de gargalos, resolução de problemas de performance e melhoria na confiabilidade dos dados exibidos para as equipes internas.
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="card-tech-tag">PHP</span>
+              <span class="card-tech-tag">Vue.js</span>
+              <span class="card-tech-tag">MySQL</span>
+            </div>
+            <button class="card-expand-btn" onclick="toggleCardDetails(event, 'details-bi', this)">
+              <span>Detalhes</span>
+              <iconify-icon icon="lucide:chevron-down" width="14" class="expand-chevron"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1382,7 +1568,7 @@
       });
     });
 
-    // Accordion Toggle
+    // Accordion Toggle (legacy, kept for compatibility)
     function toggleAccordion(element) {
       const isCurrentlyActive = element.classList.contains('active');
       document.querySelectorAll('.accordion-item').forEach(item => {
@@ -1390,6 +1576,38 @@
       });
       if (!isCurrentlyActive) {
         element.classList.add('active');
+      }
+    }
+
+    // Card Details Toggle (new unified section)
+    function toggleCardDetails(event, detailsId, btn) {
+      if (event) {
+        event.stopPropagation();
+      }
+      const details = document.getElementById(detailsId);
+      if (!details) return;
+      
+      const isOpen = details.classList.contains('open');
+      
+      // Close all other open details
+      document.querySelectorAll('.card-details.open').forEach(d => {
+        if (d.id !== detailsId) {
+          d.classList.remove('open');
+          // Reset the button of that card
+          const parentCard = d.closest('.showcase-card');
+          if (parentCard) {
+            const otherBtn = parentCard.querySelector('.card-expand-btn');
+            if (otherBtn) otherBtn.classList.remove('expanded');
+          }
+        }
+      });
+      
+      if (isOpen) {
+        details.classList.remove('open');
+        btn.classList.remove('expanded');
+      } else {
+        details.classList.add('open');
+        btn.classList.add('expanded');
       }
     }
 
@@ -1411,6 +1629,25 @@
         document.getElementById('contact-form').reset();
       }, 1500);
     }
+    
+    // Animate Soft Skills Progress Bars
+    document.addEventListener('DOMContentLoaded', () => {
+      const progressBars = document.querySelectorAll('.progress-bar-fill');
+      const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.style.getPropertyValue('--target-width');
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      progressBars.forEach(bar => {
+        bar.style.width = '0%';
+        bar.style.transition = 'width 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s';
+        progressObserver.observe(bar);
+      });
+    });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </body>
 </html>
