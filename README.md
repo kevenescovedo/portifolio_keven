@@ -2,7 +2,7 @@
 
 Portfólio pessoal de **Keven Rodrigo dos Santos Escovedo**, Desenvolvedor Full Stack & Mobile com mais de 3 anos de experiência. Este projeto é uma vitrine interativa da minha trajetória, habilidades e projetos desenvolvidos ao longo da minha carreira, com foco especial em automação, performance e soluções para o mundo real.
 
-Acesse o portfólio online: [kevenrodrigo.dev](https://kevenrodrigo.dev) *(Exemplo de URL, ajuste conforme necessário)*
+Acesse o portfólio online: [kevenrodrigo.dev](https://portifolio-keven.vercel.app/) *(Exemplo de URL, ajuste conforme necessário)*
 
 ## 🚀 Tecnologias Utilizadas
 
